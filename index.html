@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Sudoku</title>
+	<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+
+<body>
+
+	<div id="sudo">
+		<h1>Sudoku</h1>
+
+		<div id="contenedor">
+			<span class="reloj" id="Horas">00</span>
+			<span class="reloj" id="Minutos">: 00</span>
+			<span class="reloj" id="Segundos">: 00</span>
+			<span class="reloj" id="Centesimas">: 00</span>
+			<!-- 
+			<input type="button" class="boton" id="inicio" value="Start &#9658;" onclick="inicio();">
+			<input type="button" class="boton" id="parar" value="Stop &#8718;" onclick="parar();" disabled>
+			<input type="button" class="boton" id="continuar" value="Resume &#8634;" onclick="inicio();" disabled>
+			<input type="button" class="boton" id="reinicio" value="Reset &#8635;" onclick="reinicio();" disabled>
+			-->
+		</div>
+
+		<table class="table">
+			<tr>
+				<td>
+					<input type="text" id="A1" class="Grupo_Azul">
+				</td>
+				<td>
+					<input type="text" id="A2" class="Grupo_Azul">
+				</td>
+				<td>
+					<input type="text" id="A3" class="Grupo_Azul">
+				</td>
+				<td>
+					<input type="text" id="A4">
+				</td>
+				<td>
+					<input type="text" id="A5">
+				</td>
+				<td>
+					<input type="text" id="A6">
+				</td>
+				<td>
+					<input type="text" id="A7" class="Grupo_Azul">
+				</td>
+				<td>
+					<input type="text" id="A8" class="Grupo_Azul">
+				</td>
+				<td>
+					<input type="text" id="A9" class="Grupo_Azul">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<input type="text" id="B1" class="Grupo_Azul">
+				</td>
+				<td>
+					<input type="text" id="B2" class="Grupo_Azul">
+				</td>
+				<td>
+					<input type="text" id="B3" class="Grupo_Azul">
+				</td>
+				<td>
+					<input type="text" id="B4">
+				</td>
+				<td>
+					<input type="text" id="B5">
+				</td>
+				<td>
+					<input type="text" id="B6">
+				</td>
+				<td>
+					<input type="text" id="B7" class="Grupo_Azul">
+				</td>
+				<td>
+					<input type="text" id="B8" class="Grupo_Azul">
+				</td>
+				<td>
+					<input type="text" id="B9" class="Grupo_Azul">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<input type="text" id="C1" class="Grupo_Azul">
+				</td>
+				<td>
+					<input type="text" id="C2" class="Grupo_Azul">
+				</td>
+				<td>
+					<input type="text" id="C3" class="Grupo_Azul">
+				</td>
+				<td>
+					<input type="text" id="C4">
+				</td>
+				<td>
+					<input type="text" id="C5">
+				</td>
+				<td>
+					<input type="text" id="C6">
+				</td>
+				<td>
+					<input type="text" id="C7" class="Grupo_Azul">
+				</td>
+				<td>
+					<input type="text" id="C8" class="Grupo_Azul">
+				</td>
+				<td>
+					<input type="text" id="C9" class="Grupo_Azul">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<input type="text" id="D1">
+				</td>
+				<td>
+					<input type="text" id="D2">
+				</td>
+				<td>
+					<input type="text" id="D3">
+				</td>
+				<td>
+					<input type="text" id="D4" class="Grupo_Azul">
+				</td>
+				<td>
+					<input type="text" id="D5" class="Grupo_Azul">
+				</td>
+				<td>
+					<input type="text" id="D6" class="Grupo_Azul">
+				</td>
+				<td>
+					<input type="text" id="D7">
+				</td>
+				<td>
+					<input type="text" id="D8">
+				</td>
+				<td>
+					<input type="text" id="D9">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<input type="text" id="E1">
+				</td>
+				<td>
+					<input type="text" id="E2">
+				</td>
+				<td>
+					<input type="text" id="E3">
+				</td>
+				<td>
+					<input type="text" id="E4" class="Grupo_Azul">
+				</td>
+				<td>
+					<input type="text" id="E5" class="Grupo_Azul">
+				</td>
+				<td>
+					<input type="text" id="E6" class="Grupo_Azul">
+				</td>
+				<td>
+					<input type="text" id="E7">
+				</td>
+				<td>
+					<input type="text" id="E8">
+				</td>
+				<td>
+					<input type="text" id="E9">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<input type="text" id="F1">
+				</td>
+				<td>
+					<input type="text" id="F2">
+				</td>
+				<td>
+					<input type="text" id="F3">
+				</td>
+				<td>
+					<input type="text" id="F4" class="Grupo_Azul">
+				</td>
+				<td>
+					<input type="text" id="F5" class="Grupo_Azul">
+				</td>
+				<td>
+					<input type="text" id="F6" class="Grupo_Azul">
+				</td>
+				<td>
+					<input type="text" id="F7">
+				</td>
+				<td>
+					<input type="text" id="F8">
+				</td>
+				<td>
+					<input type="text" id="F9">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<input type="text" id="G1" class="Grupo_Azul">
+				</td>
+				<td>
+					<input type="text" id="G2" class="Grupo_Azul">
+				</td>
+				<td>
+					<input type="text" id="G3" class="Grupo_Azul">
+				</td>
+				<td>
+					<input type="text" id="G4">
+				</td>
+				<td>
+					<input type="text" id="G5">
+				</td>
+				<td>
+					<input type="text" id="G6">
+				</td>
+				<td>
+					<input type="text" id="G7" class="Grupo_Azul">
+				</td>
+				<td>
+					<input type="text" id="G8" class="Grupo_Azul">
+				</td>
+				<td>
+					<input type="text" id="G9" class="Grupo_Azul">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<input type="text" id="H1" class="Grupo_Azul">
+				</td>
+				<td>
+					<input type="text" id="H2" class="Grupo_Azul">
+				</td>
+				<td>
+					<input type="text" id="H3" class="Grupo_Azul">
+				</td>
+				<td>
+					<input type="text" id="H4">
+				</td>
+				<td>
+					<input type="text" id="H5">
+				</td>
+				<td>
+					<input type="text" id="H6">
+				</td>
+				<td>
+					<input type="text" id="H7" class="Grupo_Azul">
+				</td>
+				<td>
+					<input type="text" id="H8" class="Grupo_Azul">
+				</td>
+				<td>
+					<input type="text" id="H9" class="Grupo_Azul">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<input type="text" id="I1" class="Grupo_Azul">
+				</td>
+				<td>
+					<input type="text" id="I2" class="Grupo_Azul">
+				</td>
+				<td>
+					<input type="text" id="I3" class="Grupo_Azul">
+				</td>
+				<td>
+					<input type="text" id="I4">
+				</td>
+				<td>
+					<input type="text" id="I5">
+				</td>
+				<td>
+					<input type="text" id="I6">
+				</td>
+				<td>
+					<input type="text" id="I7" class="Grupo_Azul">
+				</td>
+				<td>
+					<input type="text" id="I8" class="Grupo_Azul">
+				</td>
+				<td>
+					<input type="text" id="I9" class="Grupo_Azul">
+				</td>
+			</tr>
+
+		</table>
+
+		<table style="display: none;">
+			<tr>
+				<td>
+					<input type="text" id="Z1">
+				</td>
+				<td>
+					<input type="text" id="Z2">
+				</td>
+				<td>
+					<input type="text" id="Z3">
+				</td>
+				<td>
+					<input type="text" id="Z4">
+				</td>
+				<td>
+					<input type="text" id="Z5">
+				</td>
+				<td>
+					<input type="text" id="Z6">
+				</td>
+				<td>
+					<input type="text" id="Z7">
+				</td>
+				<td>
+					<input type="text" id="Z8">
+				</td>
+				<td>
+					<input type="text" id="Z9">
+				</td>
+			</tr>
+		</table>
+	</div>
+
+	<div id="finaliza">
+		<button type="button" class="buttonFinal" onclick="conferirJogo()">Finalizar Jogo</button>
+	</div>
+
+	<!-- The Modal -->
+	<div id="myModal" class="modal">
+
+		<!-- Modal content -->
+		<div class="modal-content">
+			<!--<span class="close">&times;</span>-->
+			<p>Escolha o nível:</p>
+			<div class="botao">
+				<button id="facil" class="button" onclick="start_facil()">Fácil</button>
+				<button id="medio" class="button" onclick="start_medio()">Médio</button>
+				<button id="dificil" class="button" onclick="start_dificil()">Difícil</button>
+			</div>
+		</div>
+
+	</div>
+
+	<div id="modalResultado" class="modal">
+		<div class="modal-content">
+			<p id="mensagem">Parabéns! :)</p>
+			<div class="botao">
+				<button id="novoJogo" class="button" onclick="window.location.href='index.html'">Novo Jogo</button>
+			</div>
+		</div>
+	</div>
+
+	<div id="modalResultadoPerdeu" class="modal">
+		<div class="modal-content">
+			<p>O tabuleiro não foi preenchido corretamente! :(</p>
+			<div class="botao">
+				<button id="voltarJogo" class="button">← Voltar ao Jogo</button>
+				<button id="novoJogo" class="button" onclick="window.location.href='index.html'">Novo Jogo</button>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript" src="javascript.js"></script>
+
+
+</body>
+
+</html>
