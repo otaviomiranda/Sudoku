@@ -1,5 +1,5 @@
 //----------------------------------------------
-//INICIO Cronometro ----------------------------
+// Cronometro ----------------------------
 //----------------------------------------------
 
 var centesimas = 0;
@@ -67,12 +67,135 @@ function cronometro() {
 }
 
 //----------------------------------------------------
-// FIM Cronometro ------------------------------------
+// Variaveis Globais ---------------------------------
+//----------------------------------------------------
+
+ck_checarErro = false;
+ck_canetaDeAnotacoes = false;
+ck_apagar = false;
+ck_preencher = true;
+valorSetado = "1";
+
+//----------------------------------------------------
+// Intervenções --------------------------------------
+//----------------------------------------------------
+
+function celula(id) {
+
+    str = id.split(" ");
+    id = str[0] + str[1];
+    //ChecarErro OBS: str[0] = Linha, str[1] = Coluna
+    if (ck_checarErro == true) {
+        var fileira, coluna = false;
+        fileira = conferirFileira(str[0]);
+        coluna = conferirColuna(str[1]);
+        if (fileira == true || coluna == true) {
+            console.log('TEM ERRO');
+            return true;
+        } else {
+            console.log('SEM ERRO');
+            return false;
+        }
+    }
+
+    //Preencher Célula
+    if (ck_preencher == true) {
+        if (ck_canetaDeAnotacoes == false) {
+            if (!document.getElementById(id).classList.contains('bloqueado')) {
+                if (document.getElementById(id).classList.contains('canetaAnotacoes')) {
+                    document.getElementById(id).classList.remove('canetaAnotacoes');
+                }
+                document.getElementById(id).value = valorSetado;
+            }
+        } else {
+            if (!document.getElementById(id).classList.contains('bloqueado')) {
+                document.getElementById(id).value += ", " + valorSetado;
+            }
+        }
+    }
+
+    //Apagar Valor da Célula
+    if (ck_apagar == true) {
+        if (!document.getElementById(id).classList.contains('bloqueado')) {
+            document.getElementById(id).value = "";
+        }
+    }
+
+    //Caneta de Anotações
+    if (ck_canetaDeAnotacoes == true) {
+        document.getElementById(id).classList.add('canetaAnotacoes');
+    }
+
+}
+
+function checarCelula() {
+    if (ck_checarErro == false) {
+        ck_checarErro = true;
+        ck_canetaDeAnotacoes = false;
+        ck_apagar = false;
+        ck_preencher = false;
+        console.log('CHECAR CELULA: ON')
+        console.log(ck_checarErro);
+
+    } else {
+        ck_checarErro = false;
+        ck_preencher = true;
+        console.log('CHECAR CELULA: OFF')
+        console.log(ck_checarErro);
+    }
+}
+
+function preencher() {
+    ck_preencher = true;
+    ck_checarErro = false;
+    // ck_canetaDeAnotacoes = false;
+    ck_apagar = false;
+    console.log("PREENCHER ON: " + ck_preencher);
+}
+
+function setarValor(valor) {
+    valorSetado = valor;
+    preencher();
+    console.log(valorSetado);
+}
+
+function apagar() {
+    if (ck_apagar == false) {
+        ck_apagar = true;
+        ck_checarErro = false;
+       //ck_canetaDeAnotacoes = false;
+        ck_preencher = false;
+        document.getElementById('btn_apagar').textContent = 'Apagar ON';
+
+    } else {
+        ck_apagar = false;
+        ck_preencher = true;
+        document.getElementById('btn_apagar').textContent = 'Apagar OFF';
+    }
+
+}
+
+function canetaAnotacoes() {
+    if (ck_canetaDeAnotacoes == false) {
+        ck_canetaDeAnotacoes = true;
+        ck_apagar = false;
+        ck_checarErro = false;
+        ck_preencher = true;
+        document.getElementById('btn_caneta').textContent = 'Caneta ON';
+    } else {
+        ck_canetaDeAnotacoes = false;
+        ck_preencher = true;
+        document.getElementById('btn_caneta').textContent = 'Caneta OFF';
+    }
+}
+
+
 //----------------------------------------------------
 
 var modalResultado = document.getElementById('modalResultado');
 var modalResultadoPerdeu = document.getElementById('modalResultadoPerdeu');
 var btnVoltarJogo = document.getElementById('voltarJogo');
+var btnConferir = document.getElementById('conferirErro');
 
 btnVoltarJogo.onclick = function () {
     modalResultadoPerdeu.style.display = "none";
@@ -80,13 +203,14 @@ btnVoltarJogo.onclick = function () {
 }
 
 function preparaCampos(idCampo, valor) {
-    document.getElementById(idCampo).readOnly = true;
+    //document.getElementById(idCampo).readOnly = true;
+    document.getElementById(idCampo).classList.add('bloqueado');
     document.getElementById(idCampo).value = valor;
     document.getElementById(idCampo).style.color = "black";
 }
 
 function conferirJogo() {
-    
+
     var temErro = false;
     var aux = false;
 
@@ -131,44 +255,44 @@ function conferirJogo() {
 
     //Confere todas as colunas
 
-    temErro = coferirColuna('1');
+    temErro = conferirColuna('1');
     if (temErro == true) {
         aux = true;
     }
-    temErro = coferirColuna('2');
+    temErro = conferirColuna('2');
     if (temErro == true) {
         aux = true;
     }
-    temErro = coferirColuna('3');
+    temErro = conferirColuna('3');
     if (temErro == true) {
         aux = true;
     }
-    temErro = coferirColuna('4');
+    temErro = conferirColuna('4');
     if (temErro == true) {
         aux = true;
     }
-    temErro = coferirColuna('5');
+    temErro = conferirColuna('5');
     if (temErro == true) {
         aux = true;
     }
-    temErro = coferirColuna('6');
+    temErro = conferirColuna('6');
     if (temErro == true) {
         aux = true;
     }
-    temErro = coferirColuna('7');
+    temErro = conferirColuna('7');
     if (temErro == true) {
         aux = true;
     }
-    temErro = coferirColuna('8');
+    temErro = conferirColuna('8');
     if (temErro == true) {
         aux = true;
     }
-    temErro = coferirColuna('9');
+    temErro = conferirColuna('9');
     if (temErro == true) {
         aux = true;
     }
 
-    //Cofere todos os blocos
+    //Confere todos os blocos
 
     temErro = confereBloco('A', 'B', 'C', '1', '2', '3');
     if (temErro == true) {
@@ -207,8 +331,6 @@ function conferirJogo() {
         aux = true;
     }
 
-
-
     if (aux == true) {
         modalResultadoPerdeu.style.display = "block";
         //console.log('TEM ERRO!!!');
@@ -234,7 +356,9 @@ function conferirFileira(fileira) {
             //console.log('V: ' + v);
             if (v !== fileira + "10" && f !== v) {
                 if (document.getElementById(f).value == document.getElementById(v).value) {
-                    return true;
+                    if (document.getElementById(f).value !== "" && document.getElementById(v).value !== "") {
+                        return true;
+                    }
                 }
             }
             //f = fileira;
@@ -244,7 +368,7 @@ function conferirFileira(fileira) {
     }
 }
 
-function coferirColuna(coluna) {
+function conferirColuna(coluna) {
     document.getElementById('Z1').value = document.getElementById('A' + coluna).value;
     document.getElementById('Z2').value = document.getElementById('B' + coluna).value;
     document.getElementById('Z3').value = document.getElementById('C' + coluna).value;
@@ -272,6 +396,81 @@ function confereBloco(f1, f2, f3, c1, c2, c3) {
     return conferirFileira('Z');
 }
 
+function conferirErro(solucao) {
+    var linha_a = [];
+    for (x = 0; x < 10; x++) linha_a[x] = document.getElementById('A' + (x + 1).value);
+    for (i = 1, j = 0; i < 10, j < 10; i++ , j++) {
+        if (document.getElementById('A' + (i)).value != solucao[j]) {
+            document.getElementById('A' + (i)).style.color = "red";
+        }
+    }
+
+    var linha_b = [];
+    for (x = 0; x < 10; x++) linha_b[x] = document.getElementById('B' + (x + 1).value);
+    for (i = 1, j = 10; i < 10, j < 20; i++ , j++) {
+        if (document.getElementById('B' + (i)).value != solucao[j]) {
+            document.getElementById('B' + (i)).style.color = "red";
+        }
+    }
+
+    var linha_c = [];
+    for (x = 0; x < 10; x++) linha_c[x] = document.getElementById('C' + (x + 1).value);
+    for (i = 1, j = 20; i < 10, j < 30; i++ , j++) {
+        if (document.getElementById('C' + (i)).value != solucao[j]) {
+            document.getElementById('C' + (i)).style.color = "red";
+        }
+    }
+
+    var linha_d = [];
+    for (x = 0; x < 10; x++) linha_d[x] = document.getElementById('D' + (x + 1).value);
+    for (i = 1, j = 30; i < 10, j < 40; i++ , j++) {
+        if (document.getElementById('D' + (i)).value != solucao[j]) {
+            document.getElementById('D' + (i)).style.color = "red";
+        }
+    }
+
+    var linha_e = [];
+    for (x = 0; x < 10; x++) linha_e[x] = document.getElementById('E' + (x + 1).value);
+    for (i = 1, j = 40; i < 10, j < 50; i++ , j++) {
+        if (document.getElementById('E' + (i)).value != solucao[j]) {
+            document.getElementById('E' + (i)).style.color = "red";
+        }
+    }
+
+    var linha_f = [];
+    for (x = 0; x < 10; x++) linha_f[x] = document.getElementById('F' + (x + 1).value);
+    for (i = 1, j = 50; i < 10, j < 60; i++ , j++) {
+        if (document.getElementById('F' + (i)).value != solucao[j]) {
+            document.getElementById('F' + (i)).style.color = "red";
+        }
+    }
+
+    var linha_g = [];
+    for (x = 0; x < 10; x++) linha_g[x] = document.getElementById('G' + (x + 1).value);
+    for (i = 1, j = 60; i < 10, j < 70; i++ , j++) {
+        if (document.getElementById('G' + (i)).value != solucao[j]) {
+            document.getElementById('G' + (i)).style.color = "red";
+        }
+    }
+
+    var linha_h = [];
+    for (x = 0; x < 10; x++) linha_h[x] = document.getElementById('H' + (x + 1).value);
+    for (i = 1, j = 70; i < 10, j < 80; i++ , j++) {
+        if (document.getElementById('H' + (i)).value != solucao[j]) {
+            document.getElementById('H' + (i)).style.color = "red";
+        }
+    }
+
+    var linha_i = [];
+    for (x = 0; x < 10; x++) linha_i[x] = document.getElementById('I' + (x + 1).value);
+    for (i = 1, j = 80; i < 10, j < 90; i++ , j++) {
+        if (document.getElementById('I' + (i)).value != solucao[j]) {
+            document.getElementById('I' + (i)).style.color = "red";
+        }
+    }
+}
+
+
 //SCRIPT DO MODAL
 
 // Get the modal
@@ -284,59 +483,68 @@ window.onload = function () {
 
 function start_facil() {
 
-    var sorteio = getSorteio(1, 5);
+    var sorteio = getSorteio(1, 4);
 
     if (sorteio == 1) {
         facil_1();
+        solucao = solucao_facil_1;
     } else if (sorteio == 2) {
         facil_2();
+        solucao = solucao_facil_2;
     } else if (sorteio == 3) {
         facil_3();
+        solucao = solucao_facil_3;
     } else if (sorteio == 4) {
         facil_4();
-    } else if (sorteio == 5) {
-        facil_5();
+        solucao = solucao_facil_4;
     }
     modal.style.display = "none";
     inicio();
+    btnConferir.onclick = conferirErro(solucao);
 }
 
 function start_medio() {
 
-    var sorteio = getSorteio(1, 5);
+    var sorteio = getSorteio(1, 4);
 
     if (sorteio == 1) {
         medio_1();
+        solucao = solucao_medio_1;
     } else if (sorteio == 2) {
         medio_2();
+        solucao = solucao_medio_2;
     } else if (sorteio == 3) {
         medio_3();
+        solucao = solucao_medio_3;
     } else if (sorteio == 4) {
         medio_4();
-    } else if (sorteio == 5) {
-        medio_5();
+        solucao = solucao_medio_4;
     }
     modal.style.display = "none";
     inicio();
+    btnConferir.onclick = conferirErro(solucao);
 }
 
 function start_dificil() {
 
-    var sorteio = getSorteio(1, 5);
+    var sorteio = getSorteio(1, 4);
 
     if (sorteio == 1) {
         dificil_1();
+        solucao = solucao_dificil_1;
     } else if (sorteio == 2) {
         dificil_2();
+        solucao = solucao_dificil_2;
     } else if (sorteio == 3) {
         dificil_3();
+        solucao = solucao_dificil_3;
     } else if (sorteio == 4) {
         dificil_4();
-    } else if (sorteio == 5) {
-        dificil_5();
+        solucao = solucao_dificil_4;
     }
     modal.style.display = "none";
     inicio();
+    btnConferir.onclick = conferirErro(solucao);
 }
 
 // When the user clicks on <span> (x), close the modal
@@ -482,47 +690,6 @@ function facil_3() {
 }
 
 function facil_4() {
-    preparaCampos("A3", 8);
-    preparaCampos("B1", 4);
-    preparaCampos("B2", 9);
-    preparaCampos("B4", 1);
-    preparaCampos("B5", 5);
-    preparaCampos("B6", 7);
-    preparaCampos("B9", 2);
-    preparaCampos("C3", 3);
-    preparaCampos("C6", 4);
-    preparaCampos("C7", 1);
-    preparaCampos("C8", 9);
-    preparaCampos("D1", 1);
-    preparaCampos("D2", 8);
-    preparaCampos("D3", 5);
-    preparaCampos("D5", 6);
-    preparaCampos("D8", 2);
-    preparaCampos("E5", 2);
-    preparaCampos("E8", 6);
-    preparaCampos("F1", 9);
-    preparaCampos("F2", 6);
-    preparaCampos("F4", 4);
-    preparaCampos("F6", 5);
-    preparaCampos("F7", 3);
-    preparaCampos("G2", 3);
-    preparaCampos("G5", 7);
-    preparaCampos("G6", 2);
-    preparaCampos("G9", 4);
-    preparaCampos("H2", 4);
-    preparaCampos("H3", 9);
-    preparaCampos("H5", 3);
-    preparaCampos("H8", 5);
-    preparaCampos("H9", 7);
-    preparaCampos("I1", 8);
-    preparaCampos("I2", 2);
-    preparaCampos("I3", 7);
-    preparaCampos("H6", 9);
-    preparaCampos("H8", 1);
-    preparaCampos("H9", 3);
-}
-
-function facil_5() {
     preparaCampos("A1", 4);
     preparaCampos("A2", 1);
     preparaCampos("A5", 6);
@@ -663,39 +830,6 @@ function medio_3() {
 }
 
 function medio_4() {
-    preparaCampos("A1", 2);
-    preparaCampos("A4", 1);
-    preparaCampos("A5", 8);
-    preparaCampos("A7", 6);
-    preparaCampos("B4", 9);
-    preparaCampos("B6", 4);
-    preparaCampos("C3", 4);
-    preparaCampos("C8", 3);
-    preparaCampos("D2", 3);
-    preparaCampos("D3", 2);
-    preparaCampos("D4", 7);
-    preparaCampos("D6", 5);
-    preparaCampos("E2", 4);
-    preparaCampos("E6", 9);
-    preparaCampos("E7", 2);
-    preparaCampos("E9", 8);
-    preparaCampos("F1", 1);
-    preparaCampos("F4", 4);
-    preparaCampos("G1", 4);
-    preparaCampos("G3", 9);
-    preparaCampos("G6", 6);
-    preparaCampos("G9", 5);
-    preparaCampos("H2", 6);
-    preparaCampos("H6", 2);
-    preparaCampos("H7", 3);
-    preparaCampos("H8", 7);
-    preparaCampos("I2", 7);
-    preparaCampos("I3", 8);
-    preparaCampos("I5", 4);
-    preparaCampos("I6", 1);
-}
-
-function medio_5() {
     preparaCampos("A3", 3);
     preparaCampos("A4", 6);
     preparaCampos("A5", 7);
@@ -729,57 +863,59 @@ function medio_5() {
 }
 
 function dificil_1() {
-    preparaCampos("A1", 5);
-    preparaCampos("A6", 7)
-    preparaCampos("A9", 2);
-    preparaCampos("B6", 9);
-    preparaCampos("B7", 5);
-    preparaCampos("C2", 2);
-    preparaCampos("C5", 8);
-    preparaCampos("D1", 9);
-    preparaCampos("D2", 4);
-    preparaCampos("D4", 2);
-    preparaCampos("D6", 3);
-    preparaCampos("E3", 1);
-    preparaCampos("E7", 7);
-    preparaCampos("F4", 1);
-    preparaCampos("F6", 5);
-    preparaCampos("F8", 8);
-    preparaCampos("F9", 4);
-    preparaCampos("G5", 6);
-    preparaCampos("G8", 4);
-    preparaCampos("H3", 9);
-    preparaCampos("H4", 3);
-    preparaCampos("I1", 1);
-    preparaCampos("I4", 9);
-    preparaCampos("I9", 3);
+    preparaCampos("A2", 5);
+    preparaCampos("A3", 3);
+    preparaCampos("A5", 4);
+    preparaCampos("B5", 8);
+    preparaCampos("B9", 6);
+    preparaCampos("C3", 4);
+    preparaCampos("C4", 6);
+    preparaCampos("C7", 2);
+    preparaCampos("C9", 7);
+    preparaCampos("D7", 5);
+    preparaCampos("E1", 5);
+    preparaCampos("E2", 4);
+    preparaCampos("E5", 6);
+    preparaCampos("E8", 8);
+    preparaCampos("E9", 3);
+    preparaCampos("F3", 9);
+    preparaCampos("G1", 8);
+    preparaCampos("G3", 7);
+    preparaCampos("G6", 9);
+    preparaCampos("G7", 6);
+    preparaCampos("H1", 9);
+    preparaCampos("H5", 2);
+    preparaCampos("I5", 3);
+    preparaCampos("I7", 1);
+    preparaCampos("I8", 9);
 }
 
 function dificil_2() {
-    preparaCampos("A6", 2);
-    preparaCampos("B3", 2);
-    preparaCampos("B5", 6);
-    preparaCampos("B7", 2);
-    preparaCampos("C2", 4);
-    preparaCampos("C4", 9);
-    preparaCampos("C6", 5);
-    preparaCampos("C8", 2);
-    preparaCampos("D1", 8);
-    preparaCampos("D3", 1);
-    preparaCampos("D7", 2);
-    preparaCampos("E2", 6);
-    preparaCampos("E8", 1);
-    preparaCampos("F3", 3);
-    preparaCampos("E7", 9);
-    preparaCampos("E9", 4);
-    preparaCampos("G2", 7);
-    preparaCampos("G4", 5);
-    preparaCampos("G6", 8);
-    preparaCampos("G8", 4);
-    preparaCampos("H3", 6);
-    preparaCampos("H5", 3);
-    preparaCampos("H7", 7);
-    preparaCampos("I4", 4);
+    preparaCampos("A2", 4);
+    preparaCampos("A8", 1);
+    preparaCampos("B1", 9);
+    preparaCampos("B4", 2);
+    preparaCampos("B6", 1);
+    preparaCampos("B9", 5);
+    preparaCampos("C5", 4);
+    preparaCampos("D2", 6);
+    preparaCampos("D4", 1);
+    preparaCampos("D6", 4);
+    preparaCampos("D8", 8);
+    preparaCampos("E3", 3);
+    preparaCampos("E5", 7);
+    preparaCampos("E7", 6);
+    preparaCampos("F2", 7);
+    preparaCampos("F4", 5);
+    preparaCampos("F6", 3);
+    preparaCampos("F8", 2);
+    preparaCampos("G5", 5);
+    preparaCampos("H1", 1);
+    preparaCampos("H4", 6);
+    preparaCampos("H6", 9);
+    preparaCampos("H9", 4);
+    preparaCampos("I2", 9);
+    preparaCampos("I8", 3);
 }
 
 function dificil_3() {
@@ -836,30 +972,19 @@ function dificil_4() {
     preparaCampos("I8", 9);
 }
 
-function dificil_5() {
-    preparaCampos("A2", 4);
-    preparaCampos("A8", 1);
-    preparaCampos("B1", 9);
-    preparaCampos("B4", 2);
-    preparaCampos("B6", 1);
-    preparaCampos("B9", 5);
-    preparaCampos("C5", 4);
-    preparaCampos("D2", 6);
-    preparaCampos("D4", 1);
-    preparaCampos("D6", 4);
-    preparaCampos("D8", 8);
-    preparaCampos("E3", 3);
-    preparaCampos("E5", 7);
-    preparaCampos("E7", 6);
-    preparaCampos("F2", 7);
-    preparaCampos("F4", 5);
-    preparaCampos("F6", 3);
-    preparaCampos("F8", 2);
-    preparaCampos("G5", 5);
-    preparaCampos("H1", 1);
-    preparaCampos("H4", 6);
-    preparaCampos("H6", 9);
-    preparaCampos("H9", 4);
-    preparaCampos("I2", 9);
-    preparaCampos("I8", 3);
-}
+//Solucoes
+
+var solucao_facil_1 = [2, 1, 8, 3, 9, 6, 7, 4, 5, 4, 9, 6, 1, 5, 7, 8, 3, 2, 7, 5, 3, 2, 8, 4, 1, 9, 6, 1, 8, 5, 7, 6, 3, 4, 2, 9, 3, 7, 4, 9, 2, 8, 5, 6, 1, 9, 6, 2, 4, 1, 5, 3, 7, 8, 5, 3, 1, 6, 7, 2, 9, 8, 4, 6, 4, 9, 8, 3, 1, 2, 5, 7, 8, 2, 7, 5, 4, 9, 6, 1, 3]
+var solucao_facil_2 = [4, 2, 7, 8, 6, 5, 9, 1, 3, 9, 1, 5, 2, 4, 3, 6, 8, 7, 6, 8, 3, 7, 9, 1, 2, 5, 4, 8, 7, 1, 6, 2, 9, 3, 4, 5, 3, 4, 9, 1, 5, 8, 7, 2, 6, 2, 5, 6, 3, 7, 4, 8, 9, 1, 5, 9, 8, 4, 3, 7, 1, 6, 2, 1, 3, 2, 5, 8, 6, 4, 7, 9, 7, 6, 4, 9, 1, 2, 5, 3, 8]
+var solucao_facil_3 = [7, 3, 6, 8, 1, 5, 4, 2, 9, 4, 5, 1, 6, 9, 2, 3, 7, 8, 9, 8, 2, 3, 7, 4, 5, 6, 1, 6, 2, 7, 5, 3, 1, 9, 8, 4, 8, 1, 3, 4, 6, 9, 2, 5, 7, 5, 9, 4, 2, 8, 7, 6, 1, 3, 2, 4, 8, 7, 5, 3, 1, 9, 6, 3, 6, 9, 1, 2, 8, 7, 4, 5, 1, 7, 5, 9, 4, 6, 8, 3, 2]
+var solucao_facil_4 = [4, 1, 5, 9, 6, 2, 3, 7, 8, 7, 6, 3, 1, 8, 5, 4, 2, 9, 9, 2, 8, 3, 7, 4, 5, 6, 1, 8, 3, 1, 6, 4, 9, 2, 5, 7, 6, 7, 2, 5, 3, 1, 9, 8, 4, 5, 4, 9, 8, 2, 7, 6, 1, 3, 3, 9, 6, 2, 1, 8, 7, 4, 5, 1, 5, 7, 4, 9, 6, 8, 3, 2, 2, 8, 4, 7, 5, 3, 1, 9, 6]
+
+var solucao_medio_1 = [8, 9, 4, 1, 3, 6, 5, 7, 2, 5, 2, 7, 9, 4, 8, 6, 3, 1, 1, 6, 3, 7, 2, 5, 8, 4, 9, 6, 5, 1, 4, 7, 3, 9, 2, 8, 2, 4, 9, 5, 8, 1, 7, 6, 3, 7, 3, 8, 2, 6, 9, 4, 1, 5, 3, 8, 2, 6, 9, 4, 1, 5, 7, 9, 1, 6, 3, 5, 7, 2, 8, 4, 4, 7, 5, 8, 1, 2, 3, 9, 6]
+var solucao_medio_2 = [8, 3, 2, 1, 5, 7, 6, 4, 9, 1, 9, 6, 2, 8, 4, 3, 7, 5, 7, 4, 5, 3, 9, 6, 8, 2, 1, 9, 8, 4, 6, 7, 2, 1, 5, 3, 2, 5, 7, 8, 3, 1, 9, 6, 4, 6, 1, 3, 5, 4, 9, 7, 8, 2, 3, 7, 8, 4, 1, 5, 2, 9, 6, 4, 2, 9, 7, 6, 3, 5, 1, 8, 5, 6, 1, 9, 2, 8, 4, 3, 7]
+var solucao_medio_3 = [1, 3, 5, 8, 4, 9, 7, 6, 2, 9, 4, 6, 5, 7, 2, 3, 8, 1, 7, 2, 8, 1, 3, 6, 4, 5, 9, 6, 9, 4, 3, 2, 8, 5, 1, 7, 8, 1, 2, 4, 5, 7, 9, 3, 6, 3, 5, 7, 9, 6, 1, 8, 2, 4, 2, 6, 9, 7, 8, 3, 1, 4, 5, 5, 8, 1, 2, 9, 4, 6, 7, 3, 4, 7, 3, 6, 1, 5, 2, 9, 8]
+var solucao_medio_4 = [5, 1, 3, 6, 7, 2, 9, 8, 4, 8, 7, 2, 5, 4, 9, 6, 1, 3, 6, 9, 4, 8, 3, 1, 2, 5, 7, 7, 3, 5, 2, 8, 4, 1, 9, 6, 4, 6, 9, 1, 5, 7, 8, 3, 2, 2, 8, 1, 3, 9, 6, 7, 4, 5, 3, 4, 7, 9, 2, 8, 5, 6, 1, 1, 5, 8, 7, 6, 3, 4, 2, 9, 9, 2, 6, 4, 1, 5, 3, 7, 8]
+
+var solucao_dificil_1 = [6, 5, 3, 2, 4, 7, 9, 1, 8, 7, 9, 2, 5, 8, 1, 3, 4, 6, 1, 8, 4, 6, 9, 3, 2, 5, 7, 2, 7, 8, 3, 1, 4, 5, 6, 9, 5, 4, 1, 9, 6, 2, 7, 8, 3, 3, 6, 9, 8, 7, 5, 4, 2, 1, 8, 1, 7, 4, 5, 9, 6, 3, 2, 9, 3, 5, 1, 2, 6, 8, 7, 4, 4, 2, 6, 7, 3, 8, 1, 9, 5]
+var solucao_dificil_2 = [9, 5, 6, 8, 3, 1, 4, 2, 7, 2, 7, 8, 6, 4, 9, 1, 3, 5, 1, 4, 3, 7, 2, 5, 9, 8, 6, 5, 9, 1, 4, 8, 6, 3, 7, 2, 4, 8, 7, 2, 1, 3, 5, 6, 9, 3, 6, 2, 5, 9, 7, 8, 4, 1, 6, 2, 9, 3, 5, 4, 7, 1, 8, 8, 3, 5, 1, 7, 2, 6, 9, 4, 7, 1, 4, 9, 6, 8, 2, 5, 3]
+var solucao_dificil_3 = [9, 5, 6, 7, 2, 4, 1, 3, 8, 4, 2, 8, 3, 1, 6, 9, 7, 5, 7, 1, 3, 8, 9, 5, 6, 4, 2, 3, 6, 4, 1, 5, 8, 7, 2, 9, 1, 7, 9, 2, 4, 3, 5, 8, 6, 2, 8, 5, 6, 7, 9, 3, 1, 4, 5, 9, 2, 4, 3, 1, 8, 6, 7, 8, 4, 1, 9, 6, 7, 2, 5, 3, 6, 3, 7, 5, 8, 2, 4, 9, 1]
+var solucao_dificil_4 = [7, 4, 5, 3, 9, 6, 2, 1, 8, 9, 3, 6, 2, 8, 1, 7, 4, 5, 2, 1, 8, 7, 4, 5, 9, 6, 3, 5, 6, 9, 1, 2, 4, 3, 8, 7, 4, 2, 3, 9, 7, 8, 6, 5, 1, 8, 7, 1, 5, 6, 3, 4, 2, 9, 3, 8, 7, 4, 5, 2, 1, 9, 6, 1, 5, 2, 6, 3, 9, 8, 7, 4, 6, 9, 4, 8, 1, 7, 5, 3, 2]
