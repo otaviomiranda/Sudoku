@@ -5,7 +5,7 @@ body{
 h1{
     width: 400px;
     margin: auto;
-    padding: 20px;
+    padding: 5px 20px 20px 20px;
     text-align: center;
 }
 
@@ -15,7 +15,7 @@ h1{
 }
 
 div#finaliza {
-    width: 425px;
+    width: 454.9px;
     margin: auto;
     padding: 10px;
 }
@@ -42,7 +42,7 @@ div#metodos{
 }
 
 div#valores{
-    width: 403.2px;
+    width: 454.9px;
     margin: auto;
     padding: 0px; 
 }
@@ -81,7 +81,7 @@ div#valores{
     font-size: 16px;
     -webkit-border-radius: 8px;
     align-content: center;
-    padding: 10px 15px;
+    padding: 15px 17.874px;
     margin: auto;
     font-weight: bold;
 }
