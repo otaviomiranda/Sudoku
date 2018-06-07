@@ -74,7 +74,7 @@ ck_checarErro = false;
 ck_canetaDeAnotacoes = false;
 ck_apagar = false;
 ck_preencher = true;
-valorSetado = "1";
+valorSetado = 1;
 
 //----------------------------------------------------
 // Intervenções --------------------------------------
@@ -116,7 +116,6 @@ function celula(id) {
                 } else {
                     //document.getElementById(id).readyOnly = false;
                     document.getElementById(id).value += "" + valorSetado;
-
                 }
 
             }
@@ -145,13 +144,13 @@ function checarCelula() {
         ck_preencher = false;
         console.log('CHECAR CELULA: ON')
         console.log(ck_checarErro);
-        document.getElementById('conferirErro').style.backgroundColor = 'rgb(9, 18, 139)';
-        document.getElementById('btn_apagar').style.backgroundColor = 'rgb(36, 133, 212)';
-        document.getElementById('btn_caneta').style.backgroundColor = 'rgb(36, 133, 212)';
+        document.getElementById('conferirErro').style.backgroundColor = 'white';
+        document.getElementById('btn_apagar').style.backgroundColor = 'white';
+        document.getElementById('btn_caneta').style.backgroundColor = 'white';
     } else {
         ck_checarErro = false;
         ck_preencher = true;
-        document.getElementById('conferirErro').style.backgroundColor = 'rgb(36, 133, 212)';
+        document.getElementById('conferirErro').style.backgroundColor = 'white';
         console.log('CHECAR CELULA: OFF')
         console.log(ck_checarErro);
     }
@@ -162,9 +161,8 @@ function preencher() {
     ck_checarErro = false;
     // ck_canetaDeAnotacoes = false;
     ck_apagar = false;
-    document.getElementById('conferirErro').style.backgroundColor = 'rgb(36, 133, 212)';
-    document.getElementById('btn_apagar').style.backgroundColor = 'rgb(36, 133, 212)';
-      //  document.getElementById('btn_caneta').style.backgroundColor = 'rgb(36, 133, 212)';
+    document.getElementById('conferirErro').style.backgroundColor = 'white';
+    document.getElementById('btn_apagar').style.backgroundColor = 'white';
     console.log("PREENCHER ON: " + ck_preencher);
 }
 
@@ -181,14 +179,14 @@ function apagar() {
         //ck_canetaDeAnotacoes = false;
         ck_preencher = false;
        // document.getElementById('btn_apagar').textContent = 'Apagar ON';
-        document.getElementById('conferirErro').style.backgroundColor = 'rgb(36, 133, 212)';
-        document.getElementById('btn_apagar').style.backgroundColor = 'rgb(9, 18, 139)';
-        //document.getElementById('btn_caneta').style.backgroundColor = 'rgb(36, 133, 212)';
+        document.getElementById('conferirErro').style.backgroundColor = 'white';
+        document.getElementById('btn_apagar').style.backgroundColor = 'gray';
+        //document.getElementById('btn_caneta').style.backgroundColor = 'white';
     } else {
         ck_apagar = false;
         ck_preencher = true;
         //document.getElementById('btn_apagar').textContent = 'Apagar OFF';
-        document.getElementById('btn_apagar').style.backgroundColor = 'rgb(36, 133, 212)';
+        document.getElementById('btn_apagar').style.backgroundColor = 'white';
     }
 
 }
@@ -200,14 +198,14 @@ function canetaAnotacoes() {
         ck_checarErro = false;
         ck_preencher = true;
         //document.getElementById('btn_caneta').textContent = 'Caneta ON';
-        document.getElementById('conferirErro').style.backgroundColor = 'rgb(36, 133, 212)';
-        //document.getElementById('btn_apagar').style.backgroundColor = 'rgb(36, 133, 212)';
-        document.getElementById('btn_caneta').style.backgroundColor = 'rgb(9, 18, 139)';
+        document.getElementById('conferirErro').style.backgroundColor = 'white';
+        //document.getElementById('btn_apagar').style.backgroundColor = 'gray';
+        document.getElementById('btn_caneta').style.backgroundColor = 'gray';
     } else {
         ck_canetaDeAnotacoes = false;
         ck_preencher = true;
        // document.getElementById('btn_caneta').textContent = 'Caneta OFF';
-        document.getElementById('btn_caneta').style.backgroundColor = 'rgb(36, 133, 212)';
+        document.getElementById('btn_caneta').style.backgroundColor = 'white';
     }
 }
 

@@ -20,18 +20,31 @@ div#finaliza {
     padding: 10px;
 }
 
-div#contenedor{
-    /* border: 2px solid rgb(36, 133, 212); */
-    border-radius: 5px;
-    padding: 0px 10px 10px 10px;
-    font-size: 20px;
-    /* font-weight: bold; */
+div#header{
+    display: inline;
     margin: auto;
-    /* margin: 0px 400px 0px 400px; */
-    /* margin-right: 100px; */
-    /* position: absolute; */
     display: flex;
-    align-items: center;
+    width: 100%
+}
+
+div#newGame{
+    padding: 0px 10px 10px 30px;
+    font-size: 20px;
+    margin: auto;
+    margin-left: 300px;
+    display: flex;
+    align-items: right;
+    justify-content: right;
+}
+
+div#contenedor{
+    border-radius: 8px; 
+    padding: 0px 30px 10px 10px;
+    font-size: 20px;
+    margin: auto;
+    margin-right: 300px;
+    display: flex;
+    align-items: right;
     justify-content: center;
 }
 
@@ -48,8 +61,8 @@ div#valores{
 }
 
 .buttonFinal{
-    background-color: rgb(36, 133, 212);
-    color: white;
+    background-color: white;
+    color: black;
     border: 2px solid rgb(36, 133, 212);
     font-size: 20px;
     -webkit-border-radius: 8px;
@@ -62,8 +75,8 @@ div#valores{
 
 .button{
     display: inline;
-    background-color: rgb(36, 133, 212);
-    color: white;
+    background-color: white;
+    color: black;
     border: 1px solid rgb(36, 133, 212);
     font-size: 16px;
     -webkit-border-radius: 8px;
@@ -75,13 +88,13 @@ div#valores{
 
 .val{
     display: inline;
-    background-color: rgb(36, 39, 212);
-    color: white;
-    border: 1px solid rgb(36, 39, 212);
+    background-color:white;
+    color: black;
+    border: 1px solid rgb(36, 133, 212);
     font-size: 16px;
     -webkit-border-radius: 8px;
     align-content: center;
-    padding: 15px 17.874px;
+    padding: 15px 15px;
     margin: auto;
     font-weight: bold;
 }
@@ -185,6 +198,17 @@ p{
     padding-left:28%;
     padding-bottom: 20px;
     align-content: center;
+}
+
+div#tutorial{
+    font-size: 12px;
+    font-weight: none;
+    text-align: justify;
+}
+
+p.tutorial{
+    font-size: 12px;    
+    text-align: left;
 }
 
 .close {

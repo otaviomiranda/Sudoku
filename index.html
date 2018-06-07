@@ -12,8 +12,17 @@
 
 	<div id="sudo">
 		<h1>Sudoku</h1>
+		<div id="tutorial" class="modal">
+			<div class="modal-content">
+			</div>
+		</div>
 
-		<div id="contenedor">
+	<div id="header">
+		<div id="newGame" style="width: 40%">
+			<button id="novoJogo" class="button" style="width: 50%; " onclick="window.location.href='index.html'">Novo Jogo</button>
+		</div>
+
+		<div id="contenedor" style="width: 40%">
 			<span class="reloj" id="Horas">00</span>
 			<span class="reloj" id="Minutos">: 00</span>
 			<span class="reloj" id="Segundos">: 00</span>
@@ -25,6 +34,7 @@
 			<input type="button" class="boton" id="reinicio" value="Reset &#8635;" onclick="reinicio();" disabled>
 			-->
 		</div>
+	</div>
 
 		<table class="table">
 			<tr>
@@ -325,21 +335,21 @@
 	</div>
 
 	<div id="metodos">
-		<button id="btn_apagar" type="button" class="button" onclick="apagar()">Apagar</button>
-		<button id="btn_caneta" type="button" class="button" onclick="canetaAnotacoes()">Anotações</button>
-		<button id="conferirErro" type="button" class="button" onclick="checarCelula()">Conferir Célula</button>
+		<button id="btn_apagar" type="button" class="button" style="width: 33%" onclick="apagar()">Apagar</button>
+		<button id="btn_caneta" type="button" class="button" style="width: 33%" onclick="canetaAnotacoes()">Anotações</button>
+		<button id="conferirErro" type="button" class="button" style="width: 32%" onclick="checarCelula()">Conferir Célula</button>
 	</div>
 
 	<div id="valores">
-		<button type="button" class="val" onclick="setarValor('1')">1</button>
-		<button type="button" class="val" onclick="setarValor('2')">2</button>
-		<button type="button" class="val" onclick="setarValor('3')">3</button>
-		<button type="button" class="val" onclick="setarValor('4')">4</button>
-		<button type="button" class="val" onclick="setarValor('5')">5</button>
-		<button type="button" class="val" onclick="setarValor('6')">6</button>
-		<button type="button" class="val" onclick="setarValor('7')">7</button>
-		<button type="button" class="val" onclick="setarValor('8')">8</button>
-		<button type="button" class="val" onclick="setarValor('9')">9</button>
+		<button type="button" class="val" style="width: 10.1%" onclick="setarValor('1')">1</button>
+		<button type="button" class="val" style="width: 10.1%" onclick="setarValor('2')">2</button>
+		<button type="button" class="val" style="width: 10.1%" onclick="setarValor('3')">3</button>
+		<button type="button" class="val" style="width: 10.1%" onclick="setarValor('4')">4</button>
+		<button type="button" class="val" style="width: 10.1%" onclick="setarValor('5')">5</button>
+		<button type="button" class="val" style="width: 10.1%" onclick="setarValor('6')">6</button>
+		<button type="button" class="val" style="width: 10.1%" onclick="setarValor('7')">7</button>
+		<button type="button" class="val" style="width: 10.1%" onclick="setarValor('8')">8</button>
+		<button type="button" class="val" style="width: 10.1%" onclick="setarValor('9')">9</button>
 	</div>
 
 	<div id="finaliza">
@@ -353,10 +363,10 @@
 		<div class="modal-content">
 			<!--<span class="close">&times;</span>-->
 			<p>Escolha o nível:</p>
-			<div class="botao" style=" padding-left: 0px; height: 100px; width: 500px; ">
-				<button id="facil" class="button" onclick="start_facil()">Fácil</button>
-				<button id="medio" class="button" onclick="start_medio()">Médio</button>
-				<button id="dificil" class="button" onclick="start_dificil()">Difícil</button>
+			<div class="botao" style="padding-left: 0%; width: 100%; ">
+				<button id="facil" class="button" style="width: 33%" onclick="start_facil()">Fácil</button>
+				<button id="medio" class="button" style="width: 33%" onclick="start_medio()">Médio</button>
+				<button id="dificil" class="button" style="width: 32%" onclick="start_dificil()">Difícil</button>
 			</div>
 		</div>
 
@@ -365,8 +375,8 @@
 	<div id="modalResultado" class="modal">
 		<div class="modal-content">
 			<p id="mensagem">Parabéns! :)</p>
-			<div class="botao">
-				<button id="novoJogo" class="button" onclick="window.location.href='index.html'">Novo Jogo</button>
+			<div class="botao" style="padding-left: 25%; padding-right: 25%; width: 100%; ">
+				<button id="novoJogo" class="button" style="width: 50%;" onclick="window.location.href='index.html'">Novo Jogo</button>
 			</div>
 		</div>
 	</div>
@@ -374,9 +384,9 @@
 	<div id="modalResultadoPerdeu" class="modal">
 		<div class="modal-content">
 			<p>O tabuleiro não foi preenchido corretamente! :(</p>
-			<div class="botao">
-				<button id="voltarJogo" class="button">← Voltar ao Jogo</button>
-				<button id="novoJogo" class="button" onclick="window.location.href='index.html'">Novo Jogo</button>
+			<div class="botao" style="padding-left: 0%; width: 100%; ">
+				<button id="voltarJogo" class="button" style="width: 50%; ">← Voltar ao Jogo</button>
+				<button id="novoJogo" class="button" style="width: 50%; " onclick="window.location.href='index.html'">Novo Jogo</button>
 			</div>
 		</div>
 	</div>
