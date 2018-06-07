@@ -110,6 +110,43 @@ textarea.Grupo_Azul{
     border: 2px solid rgb(36, 133, 212);
 }
 
+.animacaoSemErro{
+   
+    animation-duration: 5s;
+    animation-name: correto;
+   
+}
+
+@keyframes correto {
+    from {
+        font-weight: bold;
+        color: rgb(56, 146, 15); 
+        border: 2px solid rgb(56, 146, 15);
+      
+    }
+  
+    to {
+        font-weight: bold;
+        color: rgb(56, 146, 15); 
+        border: 2px solid rgb(56, 146, 15);
+    }
+}
+
+@keyframes errado {
+    from {
+        font-weight: bold;
+        color: rgb(253, 2, 2); 
+        border: 2px solid rgb(253, 2, 2);
+    }
+  
+    to {
+        font-weight: bold;
+        color: rgb(253, 2, 2); 
+        border: 2px solid rgb(253, 2, 2);
+        
+    }
+}
+
 .modal {
     opacity: 0.9;
     display: none;

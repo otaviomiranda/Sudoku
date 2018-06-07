@@ -90,11 +90,11 @@ function celula(id) {
         fileira = conferirFileira(str[0]);
         coluna = conferirColuna(str[1]);
         if (fileira == true || coluna == true) {
-            console.log('TEM ERRO');
-            return true;
+            document.getElementById(id).style.animation = "";
+            setTimeout(() => document.getElementById(id).style.animation = "errado 3s linear");
         } else {
-            console.log('SEM ERRO');
-            return false;
+            document.getElementById(id).style.animation = "";
+            setTimeout(() => document.getElementById(id).style.animation = "correto 3s linear");
         }
     }
 
@@ -112,11 +112,11 @@ function celula(id) {
             if (!document.getElementById(id).classList.contains('bloqueado')) {
                 var objeto = document.getElementById(id).value;
                 if (objeto.length > 8) {
-                   // alert("O objeto TEXTAREA aceita somente 9 caracteres");
+                    // alert("O objeto TEXTAREA aceita somente 9 caracteres");
                 } else {
                     //document.getElementById(id).readyOnly = false;
                     document.getElementById(id).value += "" + valorSetado;
-                    
+
                 }
 
             }
