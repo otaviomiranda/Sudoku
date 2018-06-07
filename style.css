@@ -17,7 +17,7 @@ h1{
 div#finaliza {
     width: 425px;
     margin: auto;
-    padding: 20px;
+    padding: 10px;
 }
 
 div#contenedor{
@@ -36,12 +36,20 @@ div#contenedor{
 }
 
 div#metodos{
+    width: 454.9px;
     margin: auto;
+    padding: 10px; 
+}
+
+div#valores{
+    width: 403.2px;
+    margin: auto;
+    padding: 0px; 
 }
 
 .buttonFinal{
-    background-color: white;
-    color: black;
+    background-color: rgb(36, 133, 212);
+    color: white;
     border: 2px solid rgb(36, 133, 212);
     font-size: 20px;
     -webkit-border-radius: 8px;
@@ -54,13 +62,26 @@ div#metodos{
 
 .button{
     display: inline;
-    background-color: white;
-    color: black;
+    background-color: rgb(36, 133, 212);
+    color: white;
     border: 1px solid rgb(36, 133, 212);
     font-size: 16px;
     -webkit-border-radius: 8px;
     align-content: center;
     padding: 14px 24px; 
+    margin: auto;
+    font-weight: bold;
+}
+
+.val{
+    display: inline;
+    background-color: rgb(36, 39, 212);
+    color: white;
+    border: 1px solid rgb(36, 39, 212);
+    font-size: 16px;
+    -webkit-border-radius: 8px;
+    align-content: center;
+    padding: 10px 15px;
     margin: auto;
     font-weight: bold;
 }
