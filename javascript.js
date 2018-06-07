@@ -104,12 +104,21 @@ function celula(id) {
             if (!document.getElementById(id).classList.contains('bloqueado')) {
                 if (document.getElementById(id).classList.contains('canetaAnotacoes')) {
                     document.getElementById(id).classList.remove('canetaAnotacoes');
+                    //document.getElementById(id).readyOnly = true;
                 }
                 document.getElementById(id).value = valorSetado;
             }
         } else {
             if (!document.getElementById(id).classList.contains('bloqueado')) {
-                document.getElementById(id).value += ", " + valorSetado;
+                var objeto = document.getElementById(id).value;
+                if (objeto.length > 8) {
+                   // alert("O objeto TEXTAREA aceita somente 9 caracteres");
+                } else {
+                    //document.getElementById(id).readyOnly = false;
+                    document.getElementById(id).value += "" + valorSetado;
+                    
+                }
+
             }
         }
     }
@@ -163,7 +172,7 @@ function apagar() {
     if (ck_apagar == false) {
         ck_apagar = true;
         ck_checarErro = false;
-       //ck_canetaDeAnotacoes = false;
+        //ck_canetaDeAnotacoes = false;
         ck_preencher = false;
         document.getElementById('btn_apagar').textContent = 'Apagar ON';
 
@@ -971,6 +980,7 @@ function dificil_4() {
     preparaCampos("I5", 8);
     preparaCampos("I8", 9);
 }
+
 
 //Solucoes
 
