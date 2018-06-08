@@ -12,17 +12,11 @@
 
 	<div id="sudo">
 		<h1>Sudoku</h1>
-		<div id="tutorial" class="modal">
-			<div class="modal-content">
-			</div>
+		<div id="header">
+			<a href="index.html">Novo Jogo</a> |
+			<a href="#" onclick="tutorial()">Como Jogar?</a>
 		</div>
-
-	<div id="header">
-		<div id="newGame" style="width: 40%">
-			<button id="novoJogo" class="button" style="width: 50%; " onclick="window.location.href='index.html'">Novo Jogo</button>
-		</div>
-
-		<div id="contenedor" style="width: 40%">
+		<div id="contenedor">
 			<span class="reloj" id="Horas">00</span>
 			<span class="reloj" id="Minutos">: 00</span>
 			<span class="reloj" id="Segundos">: 00</span>
@@ -34,7 +28,6 @@
 			<input type="button" class="boton" id="reinicio" value="Reset &#8635;" onclick="reinicio();" disabled>
 			-->
 		</div>
-	</div>
 
 		<table class="table">
 			<tr>
@@ -335,21 +328,21 @@
 	</div>
 
 	<div id="metodos">
-		<button id="btn_apagar" type="button" class="button" style="width: 33%" onclick="apagar()">Apagar</button>
-		<button id="btn_caneta" type="button" class="button" style="width: 33%" onclick="canetaAnotacoes()">Anotações</button>
-		<button id="conferirErro" type="button" class="button" style="width: 32%" onclick="checarCelula()">Conferir Célula</button>
+		<button id="btn_apagar" type="button" class="button" onclick="apagar()">Apagar</button>
+		<button id="btn_caneta" type="button" class="button" onclick="canetaAnotacoes()">Anotações</button>
+		<button id="conferirErro" type="button" class="button" onclick="checarCelula()">Conferir Célula</button>
 	</div>
 
 	<div id="valores">
-		<button type="button" class="val" style="width: 10.1%" onclick="setarValor('1')">1</button>
-		<button type="button" class="val" style="width: 10.1%" onclick="setarValor('2')">2</button>
-		<button type="button" class="val" style="width: 10.1%" onclick="setarValor('3')">3</button>
-		<button type="button" class="val" style="width: 10.1%" onclick="setarValor('4')">4</button>
-		<button type="button" class="val" style="width: 10.1%" onclick="setarValor('5')">5</button>
-		<button type="button" class="val" style="width: 10.1%" onclick="setarValor('6')">6</button>
-		<button type="button" class="val" style="width: 10.1%" onclick="setarValor('7')">7</button>
-		<button type="button" class="val" style="width: 10.1%" onclick="setarValor('8')">8</button>
-		<button type="button" class="val" style="width: 10.1%" onclick="setarValor('9')">9</button>
+		<button id="b1" type="button" class="val" onclick="setarValor('1','b1')">1</button>
+		<button id="b2" type="button" class="val" onclick="setarValor('2','b2')">2</button>
+		<button id="b3" type="button" class="val" onclick="setarValor('3','b3')">3</button>
+		<button id="b4" type="button" class="val" onclick="setarValor('4', 'b4')">4</button>
+		<button id="b5" type="button" class="val" onclick="setarValor('5', 'b5')">5</button>
+		<button id="b6" type="button" class="val" onclick="setarValor('6', 'b6')">6</button>
+		<button id="b7" type="button" class="val" onclick="setarValor('7','b7')">7</button>
+		<button id="b8" type="button" class="val" onclick="setarValor('8','b8')">8</button>
+		<button id="b9" type="button" class="val" onclick="setarValor('9','b9')">9</button>
 	</div>
 
 	<div id="finaliza">
@@ -362,11 +355,13 @@
 		<!-- Modal content -->
 		<div class="modal-content">
 			<!--<span class="close">&times;</span>-->
+			
+			<a href="#" onclick="tutorial()">Como Jogar?</a>
 			<p>Escolha o nível:</p>
-			<div class="botao" style="padding-left: 0%; width: 100%; ">
-				<button id="facil" class="button" style="width: 33%" onclick="start_facil()">Fácil</button>
-				<button id="medio" class="button" style="width: 33%" onclick="start_medio()">Médio</button>
-				<button id="dificil" class="button" style="width: 32%" onclick="start_dificil()">Difícil</button>
+			<div class="botao" style=" padding-left: 0px; height: 100px; width: 500px; ">
+				<button id="facil" class="button" onclick="start_facil()">Fácil</button>
+				<button id="medio" class="button" onclick="start_medio()">Médio</button>
+				<button id="dificil" class="button" onclick="start_dificil()">Difícil</button>
 			</div>
 		</div>
 
@@ -374,9 +369,14 @@
 
 	<div id="modalResultado" class="modal">
 		<div class="modal-content">
-			<p id="mensagem">Parabéns! :)</p>
-			<div class="botao" style="padding-left: 25%; padding-right: 25%; width: 100%; ">
-				<button id="novoJogo" class="button" style="width: 50%;" onclick="window.location.href='index.html'">Novo Jogo</button>
+			<p id="mensagem">Parabéns, o tabuleiro foi preenchido corretamente!</p>
+			<div class="botao">
+				<button id="novoJogo" class="button" onclick="window.location.href='index.html'">Novo Jogo</button>
+
+			</div>
+			<div>
+				<p id="link" onClick="getEstatisticas()">Veja suas estatistica de Jogo</a>
+					<p id="estatistica"></p>
 			</div>
 		</div>
 	</div>
@@ -384,11 +384,61 @@
 	<div id="modalResultadoPerdeu" class="modal">
 		<div class="modal-content">
 			<p>O tabuleiro não foi preenchido corretamente! :(</p>
-			<div class="botao" style="padding-left: 0%; width: 100%; ">
-				<button id="voltarJogo" class="button" style="width: 50%; ">← Voltar ao Jogo</button>
-				<button id="novoJogo" class="button" style="width: 50%; " onclick="window.location.href='index.html'">Novo Jogo</button>
+			<div class="botao">
+				<button id="voltarJogo" class="button">← Voltar ao Jogo</button>
+				<button id="novoJogo" class="button" onclick="window.location.href='index.html'">Novo Jogo</button>
 			</div>
 		</div>
+	</div>
+
+	<div id="modalTutorial" class="modal">
+		<div class="modal-content">
+			<button id="sairTutorial" class="button" onclick="sairTutorial()">← Voltar ao Jogo</button>
+			<h1>Como jogar Sudoku</h1>
+
+			<h3>Conheça o esquema</h3>
+			<p>O sudoku típico consiste de uma tabela de nove quadrados grandes, e cada um dos quais contém nove quadrados pequenos.
+				Alguns desses quadradinhos são preenchidos com números de 1 a 9. Quanto maior a dificuldade do sudoku, menor a quantidade
+				de espaços previamente preenchidos.</p>
+			<p>Os quadrados grandes são contornados por uma linha mais espessa e os menores, por uma mais fina. Em certos quebra-cabeças,
+				os quadrados maiores são pintados revesadamente, como um tabuleiro de xadrez. </p>
+
+			<h3>Observe linhas e colunas. </h3>
+			<p>A regra fundamental do sudoku é que toda linha e toda coluna deve ser preenchida com algarismos de 1 a 9. Isso significa
+				que um mesmo número nunca aparecerá duas vezes na mesma linha ou coluna. </p>
+
+			<h3>Preste atenção aos números dos quadrados grandes</h3>
+			<p>Do mesmo modo, os quadrados grandes são preenchidos com números de 1 a 9. Como há apenas 9 compartimentos em cada um deles,
+				aqui também cada algarismo só poderá figurar uma vez. </p>
+			<p>Portanto, se já existe um número 2 em um determinado quadrado grande, você não poderá usá-lo nesse quadrado outra vez.
+				</p>
+			<p>Procure um quadrado grande com um único espaço vazio</h3>
+				<p>Caso encontre um, será fácil preenchê-lo: basta descobrir qual número ele ainda não tem. Se, por exemplo, esse grande
+					quadrado tem todos os números de 1 a 3 e de 5 a 9, o número que falta é 4. </p>
+
+				<h3>Procure linhas e colunas com um único espaço vazio</h3>
+				<p>Corra o dedo por cada linha e coluna, tentando descobrir se alguma delas apresenta apenas um compartimento vazio. Se
+					você descobrir alguma, basta descobrir o número que falta e anotá-lo. </p>
+
+				<h3>Examine linhas e colunas para preencher os quadrados grandes</h3>
+				<p>Analise três quadrados grandes que estejam lado a lado. Veja se algum número aparece neles duas vezes. Tome nota das
+					fileiras em que esse número aparece: ele precisará estar na fileira e no quadrado grande onde ele ainda não aparece.
+					Pode ser que dois dos três espaços dessa linha no quadrado em questão estejam preenchidos, facilitando muito a tarefa.
+					</p>
+
+				<h3>Leve em conta as fileiras perpendiculares</h3>
+				<p>Depois de aprender a avaliar linhas e colunas vizinhas, é hora de usar as fileiras perpendiculares. Retomemos a hipótese
+					anterior, mas com uma pequena diferença: você descobre em que quadrado grande tem de colocar o número, mas há dois espaços
+					vazios possíveis em vez de apenas um. </p>
+
+				<h3>Analise os números isolados</h3>
+				<p>Ou seja, se um mesmo número se repete na tabela várias vezes, será fácil descobrir onde colocar as demais instâncias
+					dele. Digamos que já há vários números 5 na tabela. Empregue as técnicas expostas acima descobrir os lugares do maior
+					número possível de 5 restantes. </p>
+					<button id="sairTutorial" class="button" onclick="sairTutorial()">← Voltar ao Jogo</button>
+		</div>
+		
+	</div>
 	</div>
 
 	<script type="text/javascript" src="javascript.js"></script>

@@ -74,7 +74,10 @@ ck_checarErro = false;
 ck_canetaDeAnotacoes = false;
 ck_apagar = false;
 ck_preencher = true;
-valorSetado = 1;
+valorSetado = "1";
+qntApagadas = 0;
+qntChecagens = 0;
+qntFinalizacoes = 0;
 
 //----------------------------------------------------
 // Intervenções --------------------------------------
@@ -92,9 +95,11 @@ function celula(id) {
         if (fileira == true || coluna == true) {
             document.getElementById(id).style.animation = "";
             setTimeout(() => document.getElementById(id).style.animation = "errado 3s linear");
+            qntChecagens++;
         } else {
             document.getElementById(id).style.animation = "";
             setTimeout(() => document.getElementById(id).style.animation = "correto 3s linear");
+            qntChecagens++;
         }
     }
 
@@ -116,6 +121,7 @@ function celula(id) {
                 } else {
                     //document.getElementById(id).readyOnly = false;
                     document.getElementById(id).value += "" + valorSetado;
+
                 }
 
             }
@@ -126,6 +132,7 @@ function celula(id) {
     if (ck_apagar == true) {
         if (!document.getElementById(id).classList.contains('bloqueado')) {
             document.getElementById(id).value = "";
+            qntApagadas++;
         }
     }
 
@@ -144,13 +151,13 @@ function checarCelula() {
         ck_preencher = false;
         console.log('CHECAR CELULA: ON')
         console.log(ck_checarErro);
-        document.getElementById('conferirErro').style.backgroundColor = 'white';
-        document.getElementById('btn_apagar').style.backgroundColor = 'white';
-        document.getElementById('btn_caneta').style.backgroundColor = 'white';
+        document.getElementById('conferirErro').style.backgroundColor = 'rgb(9, 18, 139)';
+        document.getElementById('btn_apagar').style.backgroundColor = 'rgb(36, 133, 212)';
+        document.getElementById('btn_caneta').style.backgroundColor = 'rgb(36, 133, 212)';
     } else {
         ck_checarErro = false;
         ck_preencher = true;
-        document.getElementById('conferirErro').style.backgroundColor = 'white';
+        document.getElementById('conferirErro').style.backgroundColor = 'rgb(36, 133, 212)';
         console.log('CHECAR CELULA: OFF')
         console.log(ck_checarErro);
     }
@@ -161,16 +168,33 @@ function preencher() {
     ck_checarErro = false;
     // ck_canetaDeAnotacoes = false;
     ck_apagar = false;
-    document.getElementById('conferirErro').style.backgroundColor = 'white';
-    document.getElementById('btn_apagar').style.backgroundColor = 'white';
+    document.getElementById('conferirErro').style.backgroundColor = 'rgb(36, 133, 212)';
+    document.getElementById('btn_apagar').style.backgroundColor = 'rgb(36, 133, 212)';
+    //  document.getElementById('btn_caneta').style.backgroundColor = 'rgb(36, 133, 212)';
     console.log("PREENCHER ON: " + ck_preencher);
 }
 
-function setarValor(valor) {
+function setarValor(valor, id) {
     valorSetado = valor;
     preencher();
     console.log(valorSetado);
+    //dessetar();
+    document.getElementById(id).style.backgroundColor = 'rgb(59, 59, 70);';
+    console.log(id);
 }
+
+function dessetar(){
+    document.getElementById('b1').style.backgroundColor = 'rgb(36, 39, 212)';
+    document.getElementById('b2').style.backgroundColor = 'rgb(36, 39, 212)';
+    document.getElementById('b3').style.backgroundColor = 'rgb(36, 39, 212)';
+    document.getElementById('b4').style.backgroundColor = 'rgb(36, 39, 212)';
+    document.getElementById('b5').style.backgroundColor = 'rgb(36, 39, 212)';
+    document.getElementById('b6').style.backgroundColor = 'rgb(36, 39, 212)';
+    document.getElementById('b7').style.backgroundColor = 'rgb(36, 39, 212)';
+    document.getElementById('b8').style.backgroundColor = 'rgb(36, 39, 212)';
+    document.getElementById('b9').style.backgroundColor = 'rgb(36, 39, 212)';
+}
+
 
 function apagar() {
     if (ck_apagar == false) {
@@ -178,15 +202,15 @@ function apagar() {
         ck_checarErro = false;
         //ck_canetaDeAnotacoes = false;
         ck_preencher = false;
-       // document.getElementById('btn_apagar').textContent = 'Apagar ON';
-        document.getElementById('conferirErro').style.backgroundColor = 'white';
-        document.getElementById('btn_apagar').style.backgroundColor = 'gray';
-        //document.getElementById('btn_caneta').style.backgroundColor = 'white';
+        // document.getElementById('btn_apagar').textContent = 'Apagar ON';
+        document.getElementById('conferirErro').style.backgroundColor = 'rgb(36, 133, 212)';
+        document.getElementById('btn_apagar').style.backgroundColor = 'rgb(9, 18, 139)';
+        //document.getElementById('btn_caneta').style.backgroundColor = 'rgb(36, 133, 212)';
     } else {
         ck_apagar = false;
         ck_preencher = true;
         //document.getElementById('btn_apagar').textContent = 'Apagar OFF';
-        document.getElementById('btn_apagar').style.backgroundColor = 'white';
+        document.getElementById('btn_apagar').style.backgroundColor = 'rgb(36, 133, 212)';
     }
 
 }
@@ -198,16 +222,26 @@ function canetaAnotacoes() {
         ck_checarErro = false;
         ck_preencher = true;
         //document.getElementById('btn_caneta').textContent = 'Caneta ON';
-        document.getElementById('conferirErro').style.backgroundColor = 'white';
-        //document.getElementById('btn_apagar').style.backgroundColor = 'gray';
-        document.getElementById('btn_caneta').style.backgroundColor = 'gray';
+        document.getElementById('conferirErro').style.backgroundColor = 'rgb(36, 133, 212)';
+        //document.getElementById('btn_apagar').style.backgroundColor = 'rgb(36, 133, 212)';
+        document.getElementById('btn_caneta').style.backgroundColor = 'rgb(9, 18, 139)';
     } else {
         ck_canetaDeAnotacoes = false;
         ck_preencher = true;
-       // document.getElementById('btn_caneta').textContent = 'Caneta OFF';
-        document.getElementById('btn_caneta').style.backgroundColor = 'white';
+        // document.getElementById('btn_caneta').textContent = 'Caneta OFF';
+        document.getElementById('btn_caneta').style.backgroundColor = 'rgb(36, 133, 212)';
     }
 }
+
+function getEstatisticas() {
+    document.getElementById('estatistica').innerHTML = 'Quantidade de vezes apagadas: ' + qntApagadas +
+        '<br>Chegagens de Erros: ' + qntChecagens + '<br>Finalizações mal sucedidas: ' + qntFinalizacoes;
+}
+
+function tutorial() {
+    document.getElementById('modalTutorial').style.display = "block";
+}
+
 
 
 //----------------------------------------------------
@@ -221,6 +255,11 @@ btnVoltarJogo.onclick = function () {
     modalResultadoPerdeu.style.display = "none";
     inicio();
 }
+
+function sairTutorial(){
+    document.getElementById('modalTutorial').style.display='none';
+}
+
 
 function preparaCampos(idCampo, valor) {
     //document.getElementById(idCampo).readOnly = true;
@@ -354,6 +393,7 @@ function conferirJogo() {
     if (aux == true) {
         modalResultadoPerdeu.style.display = "block";
         //console.log('TEM ERRO!!!');
+        qntFinalizacoes++;
     } else {
         modalResultado.style.display = "block";
         //console.log('PARABENS!!!');
