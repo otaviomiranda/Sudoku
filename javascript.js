@@ -138,7 +138,9 @@ function celula(id) {
 
     //Caneta de Anotações
     if (ck_canetaDeAnotacoes == true) {
-        document.getElementById(id).classList.add('canetaAnotacoes');
+        if (!document.getElementById(id).classList.contains('bloqueado')) {
+            document.getElementById(id).classList.add('canetaAnotacoes');
+        }
     }
 
 }
@@ -174,16 +176,16 @@ function preencher() {
     console.log("PREENCHER ON: " + ck_preencher);
 }
 
-function setarValor(valor, id) {
+function setarValor(valor) {
+    dessetar();
     valorSetado = valor;
     preencher();
     console.log(valorSetado);
-    //dessetar();
-    document.getElementById(id).style.backgroundColor = 'rgb(59, 59, 70);';
-    console.log(id);
+    document.getElementById('b' + valor).style.backgroundColor = 'rgb(59, 59, 70)';
+
 }
 
-function dessetar(){
+function dessetar() {
     document.getElementById('b1').style.backgroundColor = 'rgb(36, 39, 212)';
     document.getElementById('b2').style.backgroundColor = 'rgb(36, 39, 212)';
     document.getElementById('b3').style.backgroundColor = 'rgb(36, 39, 212)';
@@ -242,7 +244,96 @@ function tutorial() {
     document.getElementById('modalTutorial').style.display = "block";
 }
 
+function limparJogo() {
+    IimparCampo("A1");
+    IimparCampo("A2");
+    IimparCampo("A3");
+    IimparCampo("A4");
+    IimparCampo("A5");
+    IimparCampo("A6");
+    IimparCampo("A8");
+    IimparCampo("A7");
+    IimparCampo("A9");
+    IimparCampo("B1");
+    IimparCampo("B2");
+    IimparCampo("B3");
+    IimparCampo("B4");
+    IimparCampo("B5");
+    IimparCampo("B6");
+    IimparCampo("B8");
+    IimparCampo("B7");
+    IimparCampo("B9");
+    IimparCampo("C1");
+    IimparCampo("C2");
+    IimparCampo("C3");
+    IimparCampo("C4");
+    IimparCampo("C5");
+    IimparCampo("C6");
+    IimparCampo("C8");
+    IimparCampo("C7");
+    IimparCampo("C9");
+    IimparCampo("D1");
+    IimparCampo("D2");
+    IimparCampo("D3");
+    IimparCampo("D4");
+    IimparCampo("D5");
+    IimparCampo("D6");
+    IimparCampo("D8");
+    IimparCampo("D7");
+    IimparCampo("D9");
+    IimparCampo("E1");
+    IimparCampo("E2");
+    IimparCampo("E3");
+    IimparCampo("E4");
+    IimparCampo("E5");
+    IimparCampo("E6");
+    IimparCampo("E8");
+    IimparCampo("E7");
+    IimparCampo("E9");
+    IimparCampo("F1");
+    IimparCampo("F2");
+    IimparCampo("F3");
+    IimparCampo("F4");
+    IimparCampo("F5");
+    IimparCampo("F6");
+    IimparCampo("F8");
+    IimparCampo("F7");
+    IimparCampo("F9");
+    IimparCampo("G1");
+    IimparCampo("G2");
+    IimparCampo("G3");
+    IimparCampo("G4");
+    IimparCampo("G5");
+    IimparCampo("G6");
+    IimparCampo("G8");
+    IimparCampo("G7");
+    IimparCampo("G9");
+    IimparCampo("H1");
+    IimparCampo("H2");
+    IimparCampo("H3");
+    IimparCampo("H4");
+    IimparCampo("H5");
+    IimparCampo("H6");
+    IimparCampo("H8");
+    IimparCampo("H7");
+    IimparCampo("H9");
+    IimparCampo("I1");
+    IimparCampo("I2");
+    IimparCampo("I3");
+    IimparCampo("I4");
+    IimparCampo("I5");
+    IimparCampo("I6");
+    IimparCampo("I8");
+    IimparCampo("I7");
+    IimparCampo("I9");
 
+}
+
+function IimparCampo(id) {
+    if (!document.getElementById(id).classList.contains('bloqueado')) {
+        document.getElementById(id).value = "";
+    }
+}
 
 //----------------------------------------------------
 
@@ -250,14 +341,32 @@ var modalResultado = document.getElementById('modalResultado');
 var modalResultadoPerdeu = document.getElementById('modalResultadoPerdeu');
 var btnVoltarJogo = document.getElementById('voltarJogo');
 var btnConferir = document.getElementById('conferirErro');
+var btnNaoLimpar = document.getElementById('naoLimparJogo');
+var btnSimLimpar = document.getElementById('simLimparJogo');
+var btnLimpar = document.getElementById('limparJogo');
+var modalLimparJogo = document.getElementById('modalLimparJogo');
+
+function modalLimpar(){
+    document.getElementById('modalLimparJogo').style.display = "block";
+}
+
+
+btnSimLimpar.onclick = function () {
+    limparJogo();
+    modalLimparJogo.style.display = "none";
+}
+
+btnNaoLimpar.onclick = function () {
+    modalLimparJogo.style.display = "none";
+}
 
 btnVoltarJogo.onclick = function () {
     modalResultadoPerdeu.style.display = "none";
     inicio();
 }
 
-function sairTutorial(){
-    document.getElementById('modalTutorial').style.display='none';
+function sairTutorial() {
+    document.getElementById('modalTutorial').style.display = 'none';
 }
 
 
@@ -539,6 +648,7 @@ var modal = document.getElementById('myModal');
 // When the user clicks on the button, open the modal 
 window.onload = function () {
     modal.style.display = "block";
+    setarValor('1');
 }
 
 function start_facil() {

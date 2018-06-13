@@ -17,6 +17,9 @@
 			<a href="#" onclick="tutorial()">Como Jogar?</a>
 		</div>
 		<div id="contenedor">
+			<span>
+				<button class="limparJogo" onclick="modalLimpar()">Limpar Jogo</button>
+			</span>
 			<span class="reloj" id="Horas">00</span>
 			<span class="reloj" id="Minutos">: 00</span>
 			<span class="reloj" id="Segundos">: 00</span>
@@ -328,21 +331,27 @@
 	</div>
 
 	<div id="metodos">
-		<button id="btn_apagar" type="button" class="button" onclick="apagar()">Apagar</button>
-		<button id="btn_caneta" type="button" class="button" onclick="canetaAnotacoes()">Anotações</button>
-		<button id="conferirErro" type="button" class="button" onclick="checarCelula()">Conferir Célula</button>
+		<button id="btn_apagar" type="button" class="button tooltip" onclick="apagar()">Apagar
+			<span class="tooltiptext">Selecione a opção apagar e clique em alguma célula</span>
+		</button>
+		<button id="btn_caneta" type="button" class="button tooltip" onclick="canetaAnotacoes()">Anotações
+			<span class="tooltiptext">Selecione a opção anotações e clique em alguma célula</span>
+		</button>
+		<button id="conferirErro" type="button" class="button tooltip" onclick="checarCelula()">Conferir Célula
+			<span class="tooltiptext">Selecione a opção conferir e clique em alguma célula</span>
+		</button>
 	</div>
 
 	<div id="valores">
-		<button id="b1" type="button" class="val" onclick="setarValor('1','b1')">1</button>
-		<button id="b2" type="button" class="val" onclick="setarValor('2','b2')">2</button>
-		<button id="b3" type="button" class="val" onclick="setarValor('3','b3')">3</button>
-		<button id="b4" type="button" class="val" onclick="setarValor('4', 'b4')">4</button>
-		<button id="b5" type="button" class="val" onclick="setarValor('5', 'b5')">5</button>
-		<button id="b6" type="button" class="val" onclick="setarValor('6', 'b6')">6</button>
-		<button id="b7" type="button" class="val" onclick="setarValor('7','b7')">7</button>
-		<button id="b8" type="button" class="val" onclick="setarValor('8','b8')">8</button>
-		<button id="b9" type="button" class="val" onclick="setarValor('9','b9')">9</button>
+		<button id="b1" type="button" class="val" onclick="setarValor('1')">1</button>
+		<button id="b2" type="button" class="val" onclick="setarValor('2')">2</button>
+		<button id="b3" type="button" class="val" onclick="setarValor('3')">3</button>
+		<button id="b4" type="button" class="val" onclick="setarValor('4')">4</button>
+		<button id="b5" type="button" class="val" onclick="setarValor('5')">5</button>
+		<button id="b6" type="button" class="val" onclick="setarValor('6')">6</button>
+		<button id="b7" type="button" class="val" onclick="setarValor('7')">7</button>
+		<button id="b8" type="button" class="val" onclick="setarValor('8')">8</button>
+		<button id="b9" type="button" class="val" onclick="setarValor('9')">9</button>
 	</div>
 
 	<div id="finaliza">
@@ -355,7 +364,7 @@
 		<!-- Modal content -->
 		<div class="modal-content">
 			<!--<span class="close">&times;</span>-->
-			
+
 			<a href="#" onclick="tutorial()">Como Jogar?</a>
 			<p>Escolha o nível:</p>
 			<div class="botao" style=" padding-left: 0px; height: 100px; width: 500px; ">
@@ -391,8 +400,19 @@
 		</div>
 	</div>
 
-	<div id="modalTutorial" class="modal">
+	<div id="modalLimparJogo" class="modal">
 		<div class="modal-content">
+			<p style="margin-bottom: 0px;">Você deseja limpar todo o tabuleiro?</p>
+			<p id="second">Você perderá tudo aquilo que já fez, e a jogada será reinicida!</p>
+			<div class="botao" style="padding-left: 0px; width: 305px;">
+				<button id="simLimparJogo" class="button sucesso">Sim</button>
+				<button id="naoLimparJogo" class="button fracasso">Não</button>
+			</div>
+		</div>
+	</div>
+
+	<div id="modalTutorial" class="modal">
+		<div class="modal-content" style="margin-top: 10px;">
 			<button id="sairTutorial" class="button" onclick="sairTutorial()">← Voltar ao Jogo</button>
 			<h1>Como jogar Sudoku</h1>
 
@@ -411,7 +431,7 @@
 			<p>Do mesmo modo, os quadrados grandes são preenchidos com números de 1 a 9. Como há apenas 9 compartimentos em cada um deles,
 				aqui também cada algarismo só poderá figurar uma vez. </p>
 			<p>Portanto, se já existe um número 2 em um determinado quadrado grande, você não poderá usá-lo nesse quadrado outra vez.
-				</p>
+			</p>
 			<p>Procure um quadrado grande com um único espaço vazio</h3>
 				<p>Caso encontre um, será fácil preenchê-lo: basta descobrir qual número ele ainda não tem. Se, por exemplo, esse grande
 					quadrado tem todos os números de 1 a 3 e de 5 a 9, o número que falta é 4. </p>
@@ -424,7 +444,7 @@
 				<p>Analise três quadrados grandes que estejam lado a lado. Veja se algum número aparece neles duas vezes. Tome nota das
 					fileiras em que esse número aparece: ele precisará estar na fileira e no quadrado grande onde ele ainda não aparece.
 					Pode ser que dois dos três espaços dessa linha no quadrado em questão estejam preenchidos, facilitando muito a tarefa.
-					</p>
+				</p>
 
 				<h3>Leve em conta as fileiras perpendiculares</h3>
 				<p>Depois de aprender a avaliar linhas e colunas vizinhas, é hora de usar as fileiras perpendiculares. Retomemos a hipótese
@@ -435,9 +455,9 @@
 				<p>Ou seja, se um mesmo número se repete na tabela várias vezes, será fácil descobrir onde colocar as demais instâncias
 					dele. Digamos que já há vários números 5 na tabela. Empregue as técnicas expostas acima descobrir os lugares do maior
 					número possível de 5 restantes. </p>
-					<button id="sairTutorial" class="button" onclick="sairTutorial()">← Voltar ao Jogo</button>
+				<button id="sairTutorial" class="button" onclick="sairTutorial()">← Voltar ao Jogo</button>
 		</div>
-		
+
 	</div>
 	</div>
 
