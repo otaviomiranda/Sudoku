@@ -4,22 +4,14 @@
 <head>
 	<title>Sudoku</title>
 	<link rel="stylesheet" href="style.css" type="text/css">
-	<script src="https://ajax.googleapis.com/ajax/libs/prototype/1.7.2.0/prototype.js"></script>
-
 </head>
 
 <body>
 
 	<div id="sudo">
 		<h1>Sudoku</h1>
-		<div id="header">
-			<a href="index.html">Novo Jogo</a> |
-			<a href="#" onclick="tutorial()">Como Jogar?</a>
-		</div>
+
 		<div id="contenedor">
-			<span>
-				<button class="limparJogo" onclick="modalLimpar()">Limpar Jogo</button>
-			</span>
 			<span class="reloj" id="Horas">00</span>
 			<span class="reloj" id="Minutos">: 00</span>
 			<span class="reloj" id="Segundos">: 00</span>
@@ -35,263 +27,263 @@
 		<table class="table">
 			<tr>
 				<td>
-					<textarea type="text" id="A1" class="Grupo_Azul" onclick="celula('A 1')" readonly></textarea>
+					<input type="text" id="A1" class="Grupo_Azul">
 				</td>
 				<td>
-					<textarea type="text" id="A2" class="Grupo_Azul" onclick="celula('A 2')" readonly></textarea>
+					<input type="text" id="A2" class="Grupo_Azul">
 				</td>
 				<td>
-					<textarea type="text" id="A3" class="Grupo_Azul" onclick="celula('A 3')" readonly></textarea>
+					<input type="text" id="A3" class="Grupo_Azul">
 				</td>
 				<td>
-					<textarea type="text" id="A4" onclick="celula('A 4')" readonly></textarea>
+					<input type="text" id="A4">
 				</td>
 				<td>
-					<textarea type="text" id="A5" onclick="celula('A 5')" readonly></textarea>
+					<input type="text" id="A5">
 				</td>
 				<td>
-					<textarea type="text" id="A6" onclick="celula('A 6')" readonly></textarea>
+					<input type="text" id="A6">
 				</td>
 				<td>
-					<textarea type="text" id="A7" class="Grupo_Azul" onclick="celula('A 7')" readonly></textarea>
+					<input type="text" id="A7" class="Grupo_Azul">
 				</td>
 				<td>
-					<textarea type="text" id="A8" class="Grupo_Azul" onclick="celula('A 8')" readonly></textarea>
+					<input type="text" id="A8" class="Grupo_Azul">
 				</td>
 				<td>
-					<textarea type="text" id="A9" class="Grupo_Azul" onclick="celula('A 9')" readonly></textarea>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<textarea type="text" id="B1" class="Grupo_Azul" onclick="celula('B 1')" readonly></textarea>
-				</td>
-				<td>
-					<textarea type="text" id="B2" class="Grupo_Azul" onclick="celula('B 2')" readonly></textarea>
-				</td>
-				<td>
-					<textarea type="text" id="B3" class="Grupo_Azul" onclick="celula('B 3')" readonly></textarea>
-				</td>
-				<td>
-					<textarea type="text" id="B4" onclick="celula('B 4')" readonly></textarea>
-				</td>
-				<td>
-					<textarea type="text" id="B5" onclick="celula('B 5')" readonly></textarea>
-				</td>
-				<td>
-					<textarea type="text" id="B6" onclick="celula('B 6')" readonly></textarea>
-				</td>
-				<td>
-					<textarea type="text" id="B7" class="Grupo_Azul" onclick="celula('B 7')" readonly></textarea>
-				</td>
-				<td>
-					<textarea type="text" id="B8" class="Grupo_Azul" onclick="celula('B 8')" readonly></textarea>
-				</td>
-				<td>
-					<textarea type="text" id="B9" class="Grupo_Azul" onclick="celula('B 9')" readonly></textarea>
+					<input type="text" id="A9" class="Grupo_Azul">
 				</td>
 			</tr>
 			<tr>
 				<td>
-					<textarea type="text" id="C1" class="Grupo_Azul" onclick="celula('C 1')" readonly></textarea>
+					<input type="text" id="B1" class="Grupo_Azul">
 				</td>
 				<td>
-					<textarea type="text" id="C2" class="Grupo_Azul" onclick="celula('C 2')" readonly></textarea>
+					<input type="text" id="B2" class="Grupo_Azul">
 				</td>
 				<td>
-					<textarea type="text" id="C3" class="Grupo_Azul" onclick="celula('C 3')" readonly></textarea>
+					<input type="text" id="B3" class="Grupo_Azul">
 				</td>
 				<td>
-					<textarea type="text" id="C4" onclick="celula('C 4')" readonly></textarea>
+					<input type="text" id="B4">
 				</td>
 				<td>
-					<textarea type="text" id="C5" onclick="celula('C 5')" readonly></textarea>
+					<input type="text" id="B5">
 				</td>
 				<td>
-					<textarea type="text" id="C6" onclick="celula('C 6')" readonly></textarea>
+					<input type="text" id="B6">
 				</td>
 				<td>
-					<textarea type="text" id="C7" class="Grupo_Azul" onclick="celula('C 7')" readonly></textarea>
+					<input type="text" id="B7" class="Grupo_Azul">
 				</td>
 				<td>
-					<textarea type="text" id="C8" class="Grupo_Azul" onclick="celula('C 8')" readonly></textarea>
+					<input type="text" id="B8" class="Grupo_Azul">
 				</td>
 				<td>
-					<textarea type="text" id="C9" class="Grupo_Azul" onclick="celula('C 9')" readonly></textarea>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<textarea type="text" id="D1" onclick="celula('D 1')" readonly></textarea>
-				</td>
-				<td>
-					<textarea type="text" id="D2" onclick="celula('D 2')" readonly></textarea>
-				</td>
-				<td>
-					<textarea type="text" id="D3" onclick="celula('D 3')" readonly></textarea>
-				</td>
-				<td>
-					<textarea type="text" id="D4" class="Grupo_Azul" onclick="celula('D 4')" readonly></textarea>
-				</td>
-				<td>
-					<textarea type="text" id="D5" class="Grupo_Azul" onclick="celula('D 5')" readonly></textarea>
-				</td>
-				<td>
-					<textarea type="text" id="D6" class="Grupo_Azul" onclick="celula('D 6')" readonly></textarea>
-				</td>
-				<td>
-					<textarea type="text" id="D7" onclick="celula('D 7')" readonly></textarea>
-				</td>
-				<td>
-					<textarea type="text" id="D8" onclick="celula('D 8')" readonly></textarea>
-				</td>
-				<td>
-					<textarea type="text" id="D9" onclick="celula('D 9')" readonly></textarea>
+					<input type="text" id="B9" class="Grupo_Azul">
 				</td>
 			</tr>
 			<tr>
 				<td>
-					<textarea type="text" id="E1" onclick="celula('E 1')" readonly></textarea>
+					<input type="text" id="C1" class="Grupo_Azul">
 				</td>
 				<td>
-					<textarea type="text" id="E2" onclick="celula('E 2')" readonly></textarea>
+					<input type="text" id="C2" class="Grupo_Azul">
 				</td>
 				<td>
-					<textarea type="text" id="E3" onclick="celula('E 3')" readonly></textarea>
+					<input type="text" id="C3" class="Grupo_Azul">
 				</td>
 				<td>
-					<textarea type="text" id="E4" class="Grupo_Azul" onclick="celula('E 4')" readonly></textarea>
+					<input type="text" id="C4">
 				</td>
 				<td>
-					<textarea type="text" id="E5" class="Grupo_Azul" onclick="celula('E 5')" readonly></textarea>
+					<input type="text" id="C5">
 				</td>
 				<td>
-					<textarea type="text" id="E6" class="Grupo_Azul" onclick="celula('E 6')" readonly></textarea>
+					<input type="text" id="C6">
 				</td>
 				<td>
-					<textarea type="text" id="E7" onclick="celula('E 7')" readonly></textarea>
+					<input type="text" id="C7" class="Grupo_Azul">
 				</td>
 				<td>
-					<textarea type="text" id="E8" onclick="celula('E 8')" readonly></textarea>
+					<input type="text" id="C8" class="Grupo_Azul">
 				</td>
 				<td>
-					<textarea type="text" id="E9" onclick="celula('E 9')" readonly></textarea>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<textarea type="text" id="F1" onclick="celula('F 1')" readonly></textarea>
-				</td>
-				<td>
-					<textarea type="text" id="F2" onclick="celula('F 2')" readonly></textarea>
-				</td>
-				<td>
-					<textarea type="text" id="F3" onclick="celula('F 3')" readonly></textarea>
-				</td>
-				<td>
-					<textarea type="text" id="F4" class="Grupo_Azul" onclick="celula('F 3')" readonly></textarea>
-				</td>
-				<td>
-					<textarea type="text" id="F5" class="Grupo_Azul" onclick="celula('F 5')" readonly></textarea>
-				</td>
-				<td>
-					<textarea type="text" id="F6" class="Grupo_Azul" onclick="celula('F 6')" readonly></textarea>
-				</td>
-				<td>
-					<textarea type="text" id="F7" onclick="celula('F 7')" readonly></textarea>
-				</td>
-				<td>
-					<textarea type="text" id="F8" onclick="celula('F 8')" readonly></textarea>
-				</td>
-				<td>
-					<textarea type="text" id="F9" onclick="celula('F 9')" readonly></textarea>
+					<input type="text" id="C9" class="Grupo_Azul">
 				</td>
 			</tr>
 			<tr>
 				<td>
-					<textarea type="text" id="G1" class="Grupo_Azul" onclick="celula('G 1')" readonly></textarea>
+					<input type="text" id="D1">
 				</td>
 				<td>
-					<textarea type="text" id="G2" class="Grupo_Azul" onclick="celula('G 2')" readonly></textarea>
+					<input type="text" id="D2">
 				</td>
 				<td>
-					<textarea type="text" id="G3" class="Grupo_Azul" onclick="celula('G 3')" readonly></textarea>
+					<input type="text" id="D3">
 				</td>
 				<td>
-					<textarea type="text" id="G4" onclick="celula('G 4')" readonly></textarea>
+					<input type="text" id="D4" class="Grupo_Azul">
 				</td>
 				<td>
-					<textarea type="text" id="G5" onclick="celula('G 5')" readonly></textarea>
+					<input type="text" id="D5" class="Grupo_Azul">
 				</td>
 				<td>
-					<textarea type="text" id="G6" onclick="celula('G 6')" readonly></textarea>
+					<input type="text" id="D6" class="Grupo_Azul">
 				</td>
 				<td>
-					<textarea type="text" id="G7" class="Grupo_Azul" onclick="celula('G 7')" readonly></textarea>
+					<input type="text" id="D7">
 				</td>
 				<td>
-					<textarea type="text" id="G8" class="Grupo_Azul" onclick="celula('G 8')" readonly></textarea>
+					<input type="text" id="D8">
 				</td>
 				<td>
-					<textarea type="text" id="G9" class="Grupo_Azul" onclick="celula('G 9')" readonly></textarea>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<textarea type="text" id="H1" class="Grupo_Azul" onclick="celula('H 1')" readonly></textarea>
-				</td>
-				<td>
-					<textarea type="text" id="H2" class="Grupo_Azul" onclick="celula('H 2')" readonly></textarea>
-				</td>
-				<td>
-					<textarea type="text" id="H3" class="Grupo_Azul" onclick="celula('H 3')" readonly></textarea>
-				</td>
-				<td>
-					<textarea type="text" id="H4" onclick="celula('H 4')" readonly></textarea>
-				</td>
-				<td>
-					<textarea type="text" id="H5" onclick="celula('H 5')" readonly></textarea>
-				</td>
-				<td>
-					<textarea type="text" id="H6" onclick="celula('H 6')" readonly></textarea>
-				</td>
-				<td>
-					<textarea type="text" id="H7" class="Grupo_Azul" onclick="celula('H 7')" readonly></textarea>
-				</td>
-				<td>
-					<textarea type="text" id="H8" class="Grupo_Azul" onclick="celula('H 8')" readonly></textarea>
-				</td>
-				<td>
-					<textarea type="text" id="H9" class="Grupo_Azul" onclick="celula('H 9')" readonly></textarea>
+					<input type="text" id="D9">
 				</td>
 			</tr>
 			<tr>
 				<td>
-					<textarea type="text" id="I1" class="Grupo_Azul" onclick="celula('I 1')" readonly></textarea>
+					<input type="text" id="E1">
 				</td>
 				<td>
-					<textarea type="text" id="I2" class="Grupo_Azul" onclick="celula('I 2')" readonly></textarea>
+					<input type="text" id="E2">
 				</td>
 				<td>
-					<textarea type="text" id="I3" class="Grupo_Azul" onclick="celula('I 3')" readonly></textarea>
+					<input type="text" id="E3">
 				</td>
 				<td>
-					<textarea type="text" id="I4" onclick="celula('I 4')" readonly></textarea>
+					<input type="text" id="E4" class="Grupo_Azul">
 				</td>
 				<td>
-					<textarea type="text" id="I5" onclick="celula('I 5')" readonly></textarea>
+					<input type="text" id="E5" class="Grupo_Azul">
 				</td>
 				<td>
-					<textarea type="text" id="I6" onclick="celula('I 6')" readonly></textarea>
+					<input type="text" id="E6" class="Grupo_Azul">
 				</td>
 				<td>
-					<textarea type="text" id="I7" class="Grupo_Azul" onclick="celula('I 7')" readonly></textarea>
+					<input type="text" id="E7">
 				</td>
 				<td>
-					<textarea type="text" id="I8" class="Grupo_Azul" onclick="celula('I 8')" readonly></textarea>
+					<input type="text" id="E8">
 				</td>
 				<td>
-					<textarea type="text" id="I9" class="Grupo_Azul" onclick="celula('I 9')" readonly></textarea>
+					<input type="text" id="E9">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<input type="text" id="F1">
+				</td>
+				<td>
+					<input type="text" id="F2">
+				</td>
+				<td>
+					<input type="text" id="F3">
+				</td>
+				<td>
+					<input type="text" id="F4" class="Grupo_Azul">
+				</td>
+				<td>
+					<input type="text" id="F5" class="Grupo_Azul">
+				</td>
+				<td>
+					<input type="text" id="F6" class="Grupo_Azul">
+				</td>
+				<td>
+					<input type="text" id="F7">
+				</td>
+				<td>
+					<input type="text" id="F8">
+				</td>
+				<td>
+					<input type="text" id="F9">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<input type="text" id="G1" class="Grupo_Azul">
+				</td>
+				<td>
+					<input type="text" id="G2" class="Grupo_Azul">
+				</td>
+				<td>
+					<input type="text" id="G3" class="Grupo_Azul">
+				</td>
+				<td>
+					<input type="text" id="G4">
+				</td>
+				<td>
+					<input type="text" id="G5">
+				</td>
+				<td>
+					<input type="text" id="G6">
+				</td>
+				<td>
+					<input type="text" id="G7" class="Grupo_Azul">
+				</td>
+				<td>
+					<input type="text" id="G8" class="Grupo_Azul">
+				</td>
+				<td>
+					<input type="text" id="G9" class="Grupo_Azul">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<input type="text" id="H1" class="Grupo_Azul">
+				</td>
+				<td>
+					<input type="text" id="H2" class="Grupo_Azul">
+				</td>
+				<td>
+					<input type="text" id="H3" class="Grupo_Azul">
+				</td>
+				<td>
+					<input type="text" id="H4">
+				</td>
+				<td>
+					<input type="text" id="H5">
+				</td>
+				<td>
+					<input type="text" id="H6">
+				</td>
+				<td>
+					<input type="text" id="H7" class="Grupo_Azul">
+				</td>
+				<td>
+					<input type="text" id="H8" class="Grupo_Azul">
+				</td>
+				<td>
+					<input type="text" id="H9" class="Grupo_Azul">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<input type="text" id="I1" class="Grupo_Azul">
+				</td>
+				<td>
+					<input type="text" id="I2" class="Grupo_Azul">
+				</td>
+				<td>
+					<input type="text" id="I3" class="Grupo_Azul">
+				</td>
+				<td>
+					<input type="text" id="I4">
+				</td>
+				<td>
+					<input type="text" id="I5">
+				</td>
+				<td>
+					<input type="text" id="I6">
+				</td>
+				<td>
+					<input type="text" id="I7" class="Grupo_Azul">
+				</td>
+				<td>
+					<input type="text" id="I8" class="Grupo_Azul">
+				</td>
+				<td>
+					<input type="text" id="I9" class="Grupo_Azul">
 				</td>
 			</tr>
 
@@ -300,58 +292,34 @@
 		<table style="display: none;">
 			<tr>
 				<td>
-					<textarea type="text" id="Z1"></textarea>
+					<input type="text" id="Z1">
 				</td>
 				<td>
-					<textarea type="text" id="Z2"></textarea>
+					<input type="text" id="Z2">
 				</td>
 				<td>
-					<textarea type="text" id="Z3"></textarea>
+					<input type="text" id="Z3">
 				</td>
 				<td>
-					<textarea type="text" id="Z4"></textarea>
+					<input type="text" id="Z4">
 				</td>
 				<td>
-					<textarea type="text" id="Z5"></textarea>
+					<input type="text" id="Z5">
 				</td>
 				<td>
-					<textarea type="text" id="Z6"></textarea>
+					<input type="text" id="Z6">
 				</td>
 				<td>
-					<textarea type="text" id="Z7"></textarea>
+					<input type="text" id="Z7">
 				</td>
 				<td>
-					<textarea type="text" id="Z8"></textarea>
+					<input type="text" id="Z8">
 				</td>
 				<td>
-					<textarea type="text" id="Z9"></textarea>
+					<input type="text" id="Z9">
 				</td>
 			</tr>
 		</table>
-	</div>
-
-	<div id="metodos">
-		<button id="btn_apagar" type="button" class="button tooltip" onclick="apagar()">Apagar
-			<span class="tooltiptext">Selecione a opção apagar e clique em alguma célula</span>
-		</button>
-		<button id="btn_caneta" type="button" class="button tooltip" onclick="canetaAnotacoes()">Anotações
-			<span class="tooltiptext">Selecione a opção anotações e clique em alguma célula</span>
-		</button>
-		<button id="conferirErro" type="button" class="button tooltip" onclick="checarCelula()">Conferir Célula
-			<span class="tooltiptext">Selecione a opção conferir e clique em alguma célula</span>
-		</button>
-	</div>
-
-	<div id="valores">
-		<button id="b1" type="button" class="val" onclick="setarValor('1')">1</button>
-		<button id="b2" type="button" class="val" onclick="setarValor('2')">2</button>
-		<button id="b3" type="button" class="val" onclick="setarValor('3')">3</button>
-		<button id="b4" type="button" class="val" onclick="setarValor('4')">4</button>
-		<button id="b5" type="button" class="val" onclick="setarValor('5')">5</button>
-		<button id="b6" type="button" class="val" onclick="setarValor('6')">6</button>
-		<button id="b7" type="button" class="val" onclick="setarValor('7')">7</button>
-		<button id="b8" type="button" class="val" onclick="setarValor('8')">8</button>
-		<button id="b9" type="button" class="val" onclick="setarValor('9')">9</button>
 	</div>
 
 	<div id="finaliza">
@@ -364,10 +332,8 @@
 		<!-- Modal content -->
 		<div class="modal-content">
 			<!--<span class="close">&times;</span>-->
-
-			<a href="#" onclick="tutorial()">Como Jogar?</a>
 			<p>Escolha o nível:</p>
-			<div class="botao" style=" padding-left: 0px; height: 100px; width: 500px; ">
+			<div class="botao">
 				<button id="facil" class="button" onclick="start_facil()">Fácil</button>
 				<button id="medio" class="button" onclick="start_medio()">Médio</button>
 				<button id="dificil" class="button" onclick="start_dificil()">Difícil</button>
@@ -378,14 +344,9 @@
 
 	<div id="modalResultado" class="modal">
 		<div class="modal-content">
-			<p id="mensagem">Parabéns, o tabuleiro foi preenchido corretamente!</p>
+			<p id="mensagem">Parabéns! :)</p>
 			<div class="botao">
 				<button id="novoJogo" class="button" onclick="window.location.href='index.html'">Novo Jogo</button>
-
-			</div>
-			<div>
-				<p id="link" onClick="getEstatisticas()">Veja suas estatistica de Jogo</a>
-					<p id="estatistica"></p>
 			</div>
 		</div>
 	</div>
@@ -398,67 +359,6 @@
 				<button id="novoJogo" class="button" onclick="window.location.href='index.html'">Novo Jogo</button>
 			</div>
 		</div>
-	</div>
-
-	<div id="modalLimparJogo" class="modal">
-		<div class="modal-content">
-			<p style="margin-bottom: 0px;">Você deseja limpar todo o tabuleiro?</p>
-			<p id="second">Você perderá tudo aquilo que já fez, e a jogada será reinicida!</p>
-			<div class="botao" style="padding-left: 0px; width: 305px;">
-				<button id="simLimparJogo" class="button sucesso">Sim</button>
-				<button id="naoLimparJogo" class="button fracasso">Não</button>
-			</div>
-		</div>
-	</div>
-
-	<div id="modalTutorial" class="modal">
-		<div class="modal-content" style="margin-top: 10px;">
-			<button id="sairTutorial" class="button" onclick="sairTutorial()">← Voltar ao Jogo</button>
-			<h1>Como jogar Sudoku</h1>
-
-			<h3>Conheça o esquema</h3>
-			<p>O sudoku típico consiste de uma tabela de nove quadrados grandes, e cada um dos quais contém nove quadrados pequenos.
-				Alguns desses quadradinhos são preenchidos com números de 1 a 9. Quanto maior a dificuldade do sudoku, menor a quantidade
-				de espaços previamente preenchidos.</p>
-			<p>Os quadrados grandes são contornados por uma linha mais espessa e os menores, por uma mais fina. Em certos quebra-cabeças,
-				os quadrados maiores são pintados revesadamente, como um tabuleiro de xadrez. </p>
-
-			<h3>Observe linhas e colunas. </h3>
-			<p>A regra fundamental do sudoku é que toda linha e toda coluna deve ser preenchida com algarismos de 1 a 9. Isso significa
-				que um mesmo número nunca aparecerá duas vezes na mesma linha ou coluna. </p>
-
-			<h3>Preste atenção aos números dos quadrados grandes</h3>
-			<p>Do mesmo modo, os quadrados grandes são preenchidos com números de 1 a 9. Como há apenas 9 compartimentos em cada um deles,
-				aqui também cada algarismo só poderá figurar uma vez. </p>
-			<p>Portanto, se já existe um número 2 em um determinado quadrado grande, você não poderá usá-lo nesse quadrado outra vez.
-			</p>
-			<p>Procure um quadrado grande com um único espaço vazio</h3>
-				<p>Caso encontre um, será fácil preenchê-lo: basta descobrir qual número ele ainda não tem. Se, por exemplo, esse grande
-					quadrado tem todos os números de 1 a 3 e de 5 a 9, o número que falta é 4. </p>
-
-				<h3>Procure linhas e colunas com um único espaço vazio</h3>
-				<p>Corra o dedo por cada linha e coluna, tentando descobrir se alguma delas apresenta apenas um compartimento vazio. Se
-					você descobrir alguma, basta descobrir o número que falta e anotá-lo. </p>
-
-				<h3>Examine linhas e colunas para preencher os quadrados grandes</h3>
-				<p>Analise três quadrados grandes que estejam lado a lado. Veja se algum número aparece neles duas vezes. Tome nota das
-					fileiras em que esse número aparece: ele precisará estar na fileira e no quadrado grande onde ele ainda não aparece.
-					Pode ser que dois dos três espaços dessa linha no quadrado em questão estejam preenchidos, facilitando muito a tarefa.
-				</p>
-
-				<h3>Leve em conta as fileiras perpendiculares</h3>
-				<p>Depois de aprender a avaliar linhas e colunas vizinhas, é hora de usar as fileiras perpendiculares. Retomemos a hipótese
-					anterior, mas com uma pequena diferença: você descobre em que quadrado grande tem de colocar o número, mas há dois espaços
-					vazios possíveis em vez de apenas um. </p>
-
-				<h3>Analise os números isolados</h3>
-				<p>Ou seja, se um mesmo número se repete na tabela várias vezes, será fácil descobrir onde colocar as demais instâncias
-					dele. Digamos que já há vários números 5 na tabela. Empregue as técnicas expostas acima descobrir os lugares do maior
-					número possível de 5 restantes. </p>
-				<button id="sairTutorial" class="button" onclick="sairTutorial()">← Voltar ao Jogo</button>
-		</div>
-
-	</div>
 	</div>
 
 	<script type="text/javascript" src="javascript.js"></script>

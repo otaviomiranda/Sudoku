@@ -5,15 +5,8 @@ body{
 h1{
     width: 400px;
     margin: auto;
-    padding: 5px 20px 5px 20px;
+    padding: 20px;
     text-align: center;
-}
-div#header{
-    margin: auto;
-    /* margin-right: 50%; */
-    width: 200px;
-    /* padding: 100px; */
-    padding-bottom: 5px;
 }
 
 .table{
@@ -22,13 +15,13 @@ div#header{
 }
 
 div#finaliza {
-    width: 454.9px;
+    width: 425px;
     margin: auto;
-    padding: 10px;
+    padding: 20px;
 }
 
 div#contenedor{
-    
+    /* border: 2px solid rgb(36, 133, 212); */
     border-radius: 5px;
     padding: 0px 10px 10px 10px;
     font-size: 20px;
@@ -42,21 +35,9 @@ div#contenedor{
     justify-content: center;
 }
 
-div#metodos{
-    width: 454.9px;
-    margin: auto;
-    padding: 10px; 
-}
-
-div#valores{
-    width: 454.9px;
-    margin: auto;
-    padding: 0px; 
-}
-
 .buttonFinal{
-    background-color: rgb(36, 133, 212);
-    color: white;
+    background-color: white;
+    color: black;
     border: 2px solid rgb(36, 133, 212);
     font-size: 20px;
     -webkit-border-radius: 8px;
@@ -69,42 +50,27 @@ div#valores{
 
 .button{
     display: inline;
-    background-color: rgb(36, 133, 212);
-    color: white;
+    background-color: white;
+    color: black;
     border: 1px solid rgb(36, 133, 212);
     font-size: 16px;
     -webkit-border-radius: 8px;
-    width: 148.72px;
-    height: 50px;
-    margin: auto;
-    font-weight: bold;
-}
-
-.val{
-    display: inline;
-    background-color: rgb(36, 39, 212);
-    color: white;
-    border: 1px solid rgb(36, 39, 212);
-    font-size: 16px;
-    -webkit-border-radius: 8px;
     align-content: center;
-    padding: 15px 17.874px;
+    padding: 14px 24px; 
     margin: auto;
     font-weight: bold;
 }
 
-textarea {
-    text-align: center;
+input {
     width: 40px;
     height: 35px;
     -webkit-border-radius: 8px;
     background: #FFFFFF;
     border: 2px solid rgb(144, 150, 155);
-    font-size: 27px;
+    align: center;
+    font-size: 20px;
     color: rgb(28, 82, 230);
     text-align: center;
-    resize: none;
-    overflow: auto;
 }
 
 input[type=number]::-webkit-inner-spin-button, 
@@ -113,45 +79,8 @@ input[type=number]::-webkit-outer-spin-button {
     margin: 0; 
 }
 
-textarea.Grupo_Azul{
+input.Grupo_Azul{
     border: 2px solid rgb(36, 133, 212);
-}
-
-.animacaoSemErro{
-   
-    animation-duration: 5s;
-    animation-name: correto;
-   
-}
-
-@keyframes correto {
-    from {
-        font-weight: bold;
-        color: rgb(56, 146, 15); 
-        border: 2px solid rgb(56, 146, 15);
-      
-    }
-  
-    to {
-        font-weight: bold;
-        color: rgb(56, 146, 15); 
-        border: 2px solid rgb(56, 146, 15);
-    }
-}
-
-@keyframes errado {
-    from {
-        font-weight: bold;
-        color: rgb(253, 2, 2); 
-        border: 2px solid rgb(253, 2, 2);
-    }
-  
-    to {
-        font-weight: bold;
-        color: rgb(253, 2, 2); 
-        border: 2px solid rgb(253, 2, 2);
-        
-    }
 }
 
 .modal {
@@ -178,17 +107,9 @@ textarea.Grupo_Azul{
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-.canetaAnotacoes{
-    font-size: 13px;
-}
-
 p{
     text-align: center;
     font-weight: bold;
-}
-
-p#estatistica{
-    font-weight: normal;
 }
 
 .botao{
@@ -196,13 +117,6 @@ p#estatistica{
     padding-left:28%;
     padding-bottom: 20px;
     align-content: center;
-    margin: auto;
-}
-
-p#link{
-    color:blue;
-    font-weight: normal;
-    text-decoration: underline;
 }
 
 .close {
@@ -217,68 +131,4 @@ p#link{
     color: black;
     text-decoration: none;
     cursor: pointer;
-}
-
-.tooltip {
-    position: relative;
-    display: inline-block;
-    border-bottom: 1px dotted black;
-}
-
-.tooltip .tooltiptext {
-    visibility: hidden;
-    width: 120px;
-    background-color: #555;
-    color: #fff;
-    text-align: center;
-    border-radius: 6px;
-    padding: 5px 0;
-    position: absolute;
-    z-index: 1;
-    bottom: 125%;
-    left: 50%;
-    margin-left: -60px;
-    opacity: 0;
-    transition: opacity 0.3s;
-}
-
-.tooltip .tooltiptext::after {
-    content: "";
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    margin-left: -5px;
-    border-width: 5px;
-    border-style: solid;
-    border-color: #555 transparent transparent transparent;
-}
-
-.tooltip:hover .tooltiptext {
-    visibility: visible;
-    opacity: 1;
-}
-
-.limparJogo{
-    margin-right: 285px;
-    background-color: white;
-    font-weight: bold;
-    color: black;
-    border: 1px solid rgb(36, 133, 212);
-    -webkit-border-radius: 8px;
-
-}
-
-#second{
-    margin-top: 0px;
-    font-weight: normal;
-}
-
-.sucesso{
-    background-color: rgb(16, 165, 54);
-    border: 1px solid rgb(16, 165, 54);
-}
-
-.fracasso{
-    background-color: rgb(218, 36, 36);
-    border: 1px solid rgb(218, 36, 36);
 }
